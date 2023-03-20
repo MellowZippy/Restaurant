@@ -5,7 +5,7 @@ static class MenuCard
     public static void Main()
     {
         List<FoodModel> foodList = FoodAccess.LoadAll();
-        foreach(foodModel foodItem in foodList)
+        foreach(FoodModel foodItem in foodList)
         {
             Console.WriteLine(foodItem.Name);
         }

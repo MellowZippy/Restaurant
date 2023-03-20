@@ -16,7 +16,8 @@ static class Menu
         }
         else if (input == "2")
         {
-            Console.WriteLine("This feature is not yet implemented");
+            MenuCard.Main();
+            Console.ReadLine();
         }
         else
         {
