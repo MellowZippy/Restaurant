@@ -17,4 +17,5 @@ static class MenuCard
         }
         Console.ForegroundColor = ConsoleColor.White;
     }
+
 }

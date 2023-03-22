@@ -34,8 +34,43 @@ class FoodLogic
 
     public void MenuSeeder(List<FoodModel> foodList)
     {
-        // W.I.P
+        foreach (FoodModel foodItem in foodList)
+        {
+            UpdateList(foodItem);
+            Console.WriteLine($"{foodItem.Name} added to the menu!");
+        }
     }
+
+    public List<String> GetAllCategories()
+    {
+        List<String> Categories = new List<String>();
+
+        List<FoodModel> foodList = FoodAccess.LoadAll();
+        foreach(FoodModel foodItem in foodList)
+        {
+            Categories.Add(foodItem.Category);
+        }
+
+        return Categories;
+    }
+
+    /*
+    public List<FoodModel> FileToFoodList(string path)
+    {
+        List<FoodModel> foodList = new List<FoodModel>();
+
+        if (File.Exists(path))
+        {
+            StreamReader reader = new StreamReader(path);
+            string contents = reader.ReadToEnd();
+            reader.Close();
+            reader.Dispose();
+        }
+
+
+        return foodList;
+    }
+    */
 
     public FoodModel GetById(int id)
     {
