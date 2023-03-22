@@ -4,16 +4,16 @@ static class FoodAccess
 {
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/food.json"));
 
-    public static List<AccountModel> LoadAll()
+    public static List<FoodModel> LoadAll()
     {
         string json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<List<FoodModel>>(json);
+        return JsonSerializer.Deserialize<List<FoodModel>>(json)!;
     }
 
     public static void WriteAll(List<FoodModel> foodList)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(accounts, options);
+        string json = JsonSerializer.Serialize(foodList, options);
         File.WriteAllText(path, json);
     }
 }

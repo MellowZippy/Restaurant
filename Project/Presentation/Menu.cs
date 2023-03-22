@@ -7,16 +7,16 @@ static class Menu
     static public void Start()
     {
         Console.WriteLine("Enter 1 to login");
-        Console.WriteLine("Enter 2 to do something else in the future");
+        Console.WriteLine("Enter 2 to view all available food products");
 
-        string input = Console.ReadLine();
+        string input = Console.ReadLine()!;
         if (input == "1")
         {
             UserLogin.Start();
         }
         else if (input == "2")
         {
-            MenuCard.Main();
+            MenuCard.ShowMenuCard();
             Console.ReadLine();
         }
         else

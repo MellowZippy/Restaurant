@@ -39,6 +39,6 @@ class FoodLogic
 
     public FoodModel GetById(int id)
     {
-        return _foodList.Find(i => i.Id == id);
+        return _foodList.Find(i => i.Id == id)!;
     }
 }
