@@ -32,6 +32,8 @@ class FoodLogic
         FoodAccess.WriteAll(_foodList);
     }
 
+    public int GetLastId() => _foodList.Last().Id;
+
     public void MenuSeeder(List<FoodModel> foodList)
     {
         foreach (FoodModel foodItem in foodList)
@@ -51,7 +53,7 @@ class FoodLogic
             Categories.Add(foodItem.Category);
         }
 
-        return Categories;
+        return Categories.Distinct().ToList();
     }
 
     /*
