@@ -15,6 +15,9 @@ class FoodModel
     [JsonPropertyName("description")]
     public string Description { get; set; }
 
+    [JsonPropertyName("category")]
+    public string Category { get; set; }
+
     public FoodModel(int id, string name, double price, string description)
     {
         Id = id;
