@@ -1,17 +1,20 @@
-public static class UserCalendar
+public static class ReservationMenu
 {
-    static int month = new int();
-    static int[,] calendar = new int[6, 7];
-    private static DateTime date;
-
     public static void Start()
+    {
+        ShowCalender();
+        TimeTable();
+        HowManyPeople();
+    }
+
+    public static void ShowCalender()
     {
         int UserYear = DateTime.Now.Year;
         int UserMonth = DateTime.Now.Month;
         Calendar(UserYear, UserMonth);
     }
 
-    public static void Calendar(int year, int month)
+    private static void Calendar(int year, int month)
     {
         Console.Clear();
         var dateMonth = new DateTime(year, month, 1);
@@ -52,9 +55,35 @@ public static class UserCalendar
             if (month == 12) Calendar(year + 1, 1);
             else Calendar(year, month + 1);
         }
-        else
+    }
+
+    public static void TimeTable()
+    {
+        Console.Clear();
+        Console.WriteLine("Choose a time for your reservation:");
+        Console.WriteLine();
+        int opening = 16;
+        int closing = 22;
+        int restaurantOpenTime = closing - opening; // from 16:00 to 22:00 is the restaurant open for testing purposes
+        for (int i = 1; i < restaurantOpenTime + 1; i++)
         {
-            Calendar(year, month);
+            Console.WriteLine($"{i}) {opening}:00 - {opening + 1}:00");
+            opening += 1;
         }
+        Console.WriteLine();
+        Console.ReadLine();
+    }
+
+    public static void HowManyPeople()
+    {
+        Console.Clear();
+        Console.Write("People: ");
+        int quantityPeople = int.Parse(Console.ReadLine() ?? "");
+        Console.WriteLine("Confirm your reservation by clicking here");
+        Menu.message = "Your reservation has been made.\n";
+        Console.ReadLine();
+        Console.WriteLine("Your reservation code is: 12345");
+        Console.ReadLine();
+        UserMenu.LoginMenu();
     }
 }
