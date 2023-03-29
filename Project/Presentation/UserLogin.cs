@@ -5,55 +5,42 @@ static class UserLogin
     static private string filePath = "DataSources/accounts.json";
 
     public class AccountsLogic
-{
-    private string filePath = "DataSources/accounts.json";
-
-    public AccountModel CheckLogin(string email, string password)
     {
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            List<AccountModel> accounts = JsonConvert.DeserializeObject<List<AccountModel>>(json);
+        private string filePath = "DataSources/accounts.json";
 
-            // Find an account with a matching email and password
-            AccountModel account = accounts.Find(acc => acc.EmailAddress == email && acc.Password == password);
-
-            return account;
-        }
-        else
+        public AccountModel CheckLogin(string email, string password)
         {
-            return null;
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                List<AccountModel> accounts = JsonConvert.DeserializeObject<List<AccountModel>>(json);
+
+                // Find an account with a matching email and password
+                AccountModel account = accounts.Find(acc => acc.EmailAddress == email && acc.Password == password);
+
+                return account;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
-}
 
     public static void Start()
     {
-        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.Clear();
+        // Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Welcome to the login page");
-        Console.WriteLine("1. Login");
-        Console.WriteLine("2. Create an account");
+        Console.WriteLine();
         Console.ResetColor();
-        int choice = Convert.ToInt32(Console.ReadLine());
-
-        switch (choice)
-        {
-            case 1:
-                Login();
-                break;
-            case 2:
-                CreateAccount();
-                break;
-            default:
-                Console.WriteLine("Invalid choice");
-                break;
-        }
+        Login();
     }
 
 
     private static void Login()
     {
-        Console.ForegroundColor = ConsoleColor.Blue;
+        // Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Please enter your email address");
         string? email = Console.ReadLine();
         Console.WriteLine("Please enter your password");
@@ -62,23 +49,19 @@ static class UserLogin
         AccountModel acc = accountsLogic.CheckLogin(email!, password!);
         if (acc != null)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Welcome back " + acc.FullName);
-            Console.WriteLine("Your email number is " + acc.EmailAddress);
-            Console.ResetColor();
+            Menu.message = $"Welcome back {acc.FullName}\nYou are logged in.\n";
             //Write some code to go back to the menu
-            Menu.Start();
+            UserMenu.LoginMenu(acc);
         }
         else
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Invalid email or password");
-            Console.ResetColor();
+            Menu.message = "Invalid email or password";
         }
     }
 
     public static void CreateAccount()
     {
+        Console.Clear();
         Console.WriteLine("Please enter your email address");
         string? email = Console.ReadLine();
         Console.WriteLine("Please enter your password");
@@ -92,7 +75,8 @@ static class UserLogin
         accounts.Add(acc);
         SaveAccounts(accounts);
 
-        Console.WriteLine("Account created successfully");
+        Menu.message = "Account created successfully\nYou are logged in.\n";
+        UserMenu.LoginMenu(acc);
     }
 
     private static List<AccountModel> GetAccounts()
@@ -100,7 +84,7 @@ static class UserLogin
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<AccountModel>>(json)!;
+            return JsonConvert.DeserializeObject<List<AccountModel>>(json);
         }
         else
         {
