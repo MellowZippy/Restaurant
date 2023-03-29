@@ -77,7 +77,7 @@ static class UserLogin
         }
     }
 
-    private static void CreateAccount()
+    public static void CreateAccount()
     {
         Console.WriteLine("Please enter your email address");
         string? email = Console.ReadLine();

@@ -2,12 +2,12 @@
 
 class ForeGround
 {
-    static void Main()
+    public static void Main()
     {
       ForeGroundStartScreen();
     }
 
-    static void ForeGroundStartScreen()
+    private static void ForeGroundStartScreen()
     {
         Console.ForegroundColor = ConsoleColor.Blue;  // Kleur lettertype veranderen
         Console.BackgroundColor = ConsoleColor.Black;
@@ -49,7 +49,7 @@ class ForeGround
             break;
 
           case 2:
-            UserLogIn.CreateAccount();
+            UserLogin.CreateAccount();
             break;
           
           case 3:
