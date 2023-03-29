@@ -1,10 +1,17 @@
 public static class ReservationMenu
 {
-    public static void Start()
+    public static DateTime userDate;
+
+    public static void MakeReservation(AccountModel account)
     {
+
         ShowCalender();
-        TimeTable();
-        HowManyPeople();
+        string time = TimeTable();
+        int quantityPeople = HowManyPeople();
+        Reservation newReservation = new Reservation(userDate, time, quantityPeople, account.FullName);
+        Console.WriteLine($"\n{newReservation.ToString()}\n");
+        Console.ReadLine();
+        UserMenu.LoginMenu(account);
     }
 
     public static void ShowCalender()
@@ -55,9 +62,11 @@ public static class ReservationMenu
             if (month == 12) Calendar(year + 1, 1);
             else Calendar(year, month + 1);
         }
+        // return the day, month and year in a datetime object
+        else userDate = dateMonth;
     }
 
-    public static void TimeTable()
+    public static string TimeTable()
     {
         Console.Clear();
         Console.WriteLine("Choose a time for your reservation:");
@@ -72,9 +81,10 @@ public static class ReservationMenu
         }
         Console.WriteLine();
         Console.ReadLine();
+        return "a time";
     }
 
-    public static void HowManyPeople()
+    public static int HowManyPeople()
     {
         Console.Clear();
         Console.Write("People: ");
@@ -84,6 +94,6 @@ public static class ReservationMenu
         Console.ReadLine();
         Console.WriteLine("Your reservation code is: 12345");
         Console.ReadLine();
-        UserMenu.LoginMenu();
+        return quantityPeople;
     }
 }
