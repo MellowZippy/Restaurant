@@ -29,33 +29,15 @@ static class UserLogin
 
     public static void Start()
     {
-        Console.WriteLine("Welcome to the login page");
-        Console.WriteLine("Please enter your email address");
-        string email = Console.ReadLine();
-        Console.WriteLine("Please enter your password");
-        string password = Console.ReadLine();
-        AccountModel CurrentAcc = accountsLogic.CheckLogin(email, password);
-        if (CurrentAcc != null)
-        {
-            if (CurrentAcc.Admin == true){
-                Menu.AdminUI();
-            }
-            if (CurrentAcc.Waiter == true){
-                Menu.WaiterUI();
-            }
-            else Menu.UserUI();
-        }
-        else
-        {
-            Console.WriteLine("No account found with that email and password");
-            Menu.Start();
-        }
+        Console.Clear();
+        Login();
     }
 
 
     private static void Login()
     {
         // Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine("Welcome to the login page\n");
         Console.WriteLine("Please enter your email address");
         string? email = Console.ReadLine();
         Console.WriteLine("Please enter your password");
@@ -65,12 +47,21 @@ static class UserLogin
         if (acc != null)
         {
             Menu.message = $"Welcome back {acc.FullName}\nYou are logged in.\n";
-            //Write some code to go back to the menu
+            if (acc.Admin == true)
+            {
+                Menu.AdminUI();
+            }
+            if (acc.Waiter == true)
+            {
+                Menu.WaiterUI();
+            }
+            else Menu.UserUI();
             UserMenu.LoginMenu(acc);
         }
         else
         {
             Menu.message = "Invalid email or password";
+            Menu.Start();
         }
     }
 
@@ -86,7 +77,7 @@ static class UserLogin
 
         List<AccountModel> accounts = GetAccounts();
         int nextId = accounts.Count + 1;
-        AccountModel acc = new AccountModel(nextId, email!, password!, fullName!);
+        AccountModel acc = new AccountModel(nextId, email!, password!, fullName!, false, false);
         accounts.Add(acc);
         SaveAccounts(accounts);
 
