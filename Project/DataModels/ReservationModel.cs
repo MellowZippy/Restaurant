@@ -28,7 +28,11 @@ public class ReservationModel
         QuantityPeople = quantityPeople;
         FullName = fullName;
     }
-
+    
+    public override string ToString()
+    {
+        return $"Date: {Date}, Time: {Time}, QuantityPeople: {QuantityPeople}, CustomerName: {FullName}";
+    }
 }
 
 

@@ -29,12 +29,27 @@ static class UserLogin
 
     public static void Start()
     {
-        Console.Clear();
-        // Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Welcome to the login page");
-        Console.WriteLine();
-        Console.ResetColor();
-        Login();
+        Console.WriteLine("Please enter your email address");
+        string email = Console.ReadLine();
+        Console.WriteLine("Please enter your password");
+        string password = Console.ReadLine();
+        AccountModel CurrentAcc = accountsLogic.CheckLogin(email, password);
+        if (CurrentAcc != null)
+        {
+            if (CurrentAcc.Admin == true){
+                Menu.AdminUI();
+            }
+            if (CurrentAcc.Waiter == true){
+                Menu.WaiterUI();
+            }
+            else Menu.UserUI();
+        }
+        else
+        {
+            Console.WriteLine("No account found with that email and password");
+            Menu.Start();
+        }
     }
 
 
