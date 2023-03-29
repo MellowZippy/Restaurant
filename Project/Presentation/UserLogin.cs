@@ -100,7 +100,7 @@ static class UserLogin
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<AccountModel>>(json);
+            return JsonConvert.DeserializeObject<List<AccountModel>>(json)!;
         }
         else
         {

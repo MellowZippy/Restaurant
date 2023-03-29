@@ -18,11 +18,12 @@ class FoodModel
     [JsonPropertyName("category")]
     public string Category { get; set; }
 
-    public FoodModel(int id, string name, double price, string description)
+    public FoodModel(int id, string name, double price, string description, string category)
     {
         Id = id;
         Name = name;
         Price = price;
         Description = description;
+        Category = category;
     }
 }

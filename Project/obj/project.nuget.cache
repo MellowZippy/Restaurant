@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1vVpgo0TDEBhgReVfDX60D4luuzxZYJGfxvBQEWZXE4HWbyXTsToFDSKFAkbUt06hY0z/LarovP5fF5sG5S0lw==",
+  "dgSpecHash": "O1xje5BmAYwtmsjoNMcmIlalpJeHX8hZ6PELp3VC/1dIYuhDvXCpu5O1KOFaHIqXMsYEpAwWzSjkqIlUkA5q4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\KruKY\\OneDrive - Hogeschool Rotterdam\\ProjectB\\Template version 2\\ThreeLayerTemplate\\Project\\Project.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Basic\\OneDrive\\Desktop\\Restaurant Newest Files\\Restaurant\\Project\\Project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Basic\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
