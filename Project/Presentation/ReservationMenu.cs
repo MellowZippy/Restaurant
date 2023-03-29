@@ -8,8 +8,9 @@ public static class ReservationMenu
         ShowCalender();
         string time = TimeTable();
         int quantityPeople = HowManyPeople();
-        Reservation newReservation = new Reservation(userDate, time, quantityPeople, account.FullName);
+        ReservationModel newReservation = new ReservationModel(1, userDate, time, quantityPeople, account.FullName);
         Console.WriteLine($"\n{newReservation.ToString()}\n");
+        ReservationsLogic.UpdateList(newReservation);
         Console.ReadLine();
         UserMenu.LoginMenu(account);
     }
