@@ -3,7 +3,7 @@ static class UserMenu
     public static void LoginMenu(AccountModel account)
     {
         Console.Clear();
-        if (Menu.message != "") Console.WriteLine(Menu.message); Menu.message = "";
+        Menu.Print();
         Console.WriteLine("Enter 1 to make a reservation");
         Console.WriteLine("Enter 2 to see your reservations");
         string input = Console.ReadLine() ?? "";
@@ -13,17 +13,11 @@ static class UserMenu
         }
         else if (input == "2")
         {
-            Menu.message = "This feature is not yet implemented.\n";
-            LoginMenu(account);
+            ReservationMenu.SeeReservations(account);
         }
         else
         {
             LoginMenu(account);
         }
-    }
-
-    public static void SeeReservations()
-    {
-
     }
 }
