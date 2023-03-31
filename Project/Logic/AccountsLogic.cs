@@ -5,71 +5,53 @@ using System.Text.Json;
 
 
 //This class is not static so later on we can use inheritance and interfaces
-class AccountsLogic
+class ReservationsLogic
 {
-    private List<AccountModel> _accounts;
+    private static List<ReservationModel> _reservations = ReservationsAccess.LoadAll();
 
-    //Static properties are shared across all instances of the class
-    //This can be used to get the current logged in account from anywhere in the program
-    //private set, so this can only be set by the class itself
-    static public AccountModel? CurrentAccount { get; private set; }
-
-    public AccountsLogic()
-    {
-        _accounts = AccountsAccess.LoadAll();
-    }
-
-
-    public void UpdateList(AccountModel acc)
+    public static void UpdateList(ReservationModel res)
     {
         //Find if there is already an model with the same id
-        int index = _accounts.FindIndex(s => s.Id == acc.Id);
+        int index = _reservations.FindIndex(s => s.Id == res.Id);
 
         if (index != -1)
         {
             //update existing model
-            _accounts[index] = acc;
+            _reservations[index] = res;
         }
         else
         {
             //add new model
-            _accounts.Add(acc);
+            _reservations.Add(res);
         }
-        AccountsAccess.WriteAll(_accounts);
+        ReservationsAccess.WriteAll(_reservations);
 
     }
 
-    public AccountModel GetById(int id)
+    public ReservationModel GetById(int id)
     {
-        return _accounts.Find(i => i.Id == id);
+        return _reservations.Find(i => i.Id == id);
     }
 
-    public AccountModel CheckLogin(string email, string password)
+    public static ReservationModel AddReservation(DateTime date, string time, int quantityPeople, string fullName, int accountId)
     {
-        if (email == null || password == null)
+        List<ReservationModel> reservationsList = ReservationsAccess.LoadAll();
+        int nextId = reservationsList.Count + 1;
+        ReservationModel res = new ReservationModel(nextId, date, time, quantityPeople, fullName, accountId);
+        reservationsList.Add(res);
+        ReservationsAccess.WriteAll(reservationsList);
+        return res;
+    }
+
+    public static List<ReservationModel> FindAccountReservation(AccountModel account)
+    {
+        List<ReservationModel> reservationsList = new List<ReservationModel>();
+        foreach (ReservationModel reservation in _reservations)
         {
-            return null;
+            if (reservation.AccountId == account.Id) reservationsList.Add(reservation);
         }
-        CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
-        return CurrentAccount;
-    }
-
-    public static AccountModel AddAccount(string email, string password, string fullName, bool isAdmin, bool isWaiter)
-    {
-        List<AccountModel> accountsList = AccountsAccess.LoadAll();
-        int nextId = accountsList.Count + 1;
-        AccountModel acc = new AccountModel(nextId, email, password, fullName, isAdmin, isWaiter);
-        accountsList.Add(acc);
-        AccountsAccess.WriteAll(accountsList);
-        return acc;
-    }
-
-    public static bool CheckIfEmailExists(string email)
-    {
-        List<AccountModel> accountsList = AccountsAccess.LoadAll();
-        AccountModel acc = accountsList.Find(i => i.EmailAddress == email);
-        if (acc != null) return true;
-        return false;
+        return reservationsList;
     }
 }
+
 
