@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-ForeGround.Main();
+public class Program
+{
+    public static void Main()
+    {
+        while (true)
+        {
+            Console.Clear();
+            Menu.Start();
+        }
+    }
+}
