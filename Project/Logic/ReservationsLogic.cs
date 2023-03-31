@@ -7,13 +7,7 @@ using System.Text.Json;
 //This class is not static so later on we can use inheritance and interfaces
 class ReservationsLogic
 {
-    private static List<ReservationModel> _reservations;
-
-    public ReservationsLogic()
-    {
-        _reservations = ReservationsAccess.LoadAll();
-    }
-
+    private static List<ReservationModel> _reservations = ReservationsAccess.LoadAll();
 
     public static void UpdateList(ReservationModel res)
     {
@@ -37,6 +31,26 @@ class ReservationsLogic
     public ReservationModel GetById(int id)
     {
         return _reservations.Find(i => i.Id == id);
+    }
+
+    public static ReservationModel AddReservation(DateTime date, string time, int quantityPeople, string fullName, int accountId)
+    {
+        List<ReservationModel> reservationsList = ReservationsAccess.LoadAll();
+        int nextId = reservationsList.Count + 1;
+        ReservationModel res = new ReservationModel(nextId, date, time, quantityPeople, fullName, accountId);
+        reservationsList.Add(res);
+        ReservationsAccess.WriteAll(reservationsList);
+        return res;
+    }
+
+    public static List<ReservationModel> FindAccountReservation(AccountModel account)
+    {
+        List<ReservationModel> reservationsList = new List<ReservationModel>();
+        foreach (ReservationModel reservation in _reservations)
+        {
+            if (reservation.AccountId == account.Id) reservationsList.Add(reservation);
+        }
+        return reservationsList;
     }
 }
 
