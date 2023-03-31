@@ -1,6 +1,11 @@
 static class Menu
 {
     public static string message = "";
+
+    public static void Print()
+    {
+        if (message != "") Console.WriteLine(message + "\n"); message = "";
+    }
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
@@ -37,6 +42,7 @@ static class Menu
         {
             System.Environment.Exit(0);
         }
+        else
         {
             Console.WriteLine("Invalid input");
             Menu.AdminUI();
@@ -79,8 +85,7 @@ static class Menu
     static public void Start()
     {
         Console.Clear();
-        if (message != "") Console.WriteLine(message + "\n");
-        message = "";
+        Menu.Print();
         Console.WriteLine("Enter 1 to login");
         Console.WriteLine("Enter 2 to create an account");
         Console.WriteLine("Enter 3 to see the menu card");
@@ -89,7 +94,7 @@ static class Menu
         string input = Console.ReadLine() ?? "";
         if (input == "1")
         {
-            UserLogin.Start();
+            UserLogin.Login();
         }
         else if (input == "2")
         {
