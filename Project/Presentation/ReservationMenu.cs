@@ -8,9 +8,8 @@ public static class ReservationMenu
         ShowCalender();
         string time = TimeTable();
         int quantityPeople = HowManyPeople();
-        ReservationModel newReservation = new ReservationModel(1, userDate, time, quantityPeople, account.FullName);
+        ReservationModel newReservation = ReservationsLogic.AddReservation(userDate, time, quantityPeople, account.FullName, account.Id);
         Console.WriteLine($"\n{newReservation.ToString()}\n");
-        ReservationsLogic.UpdateList(newReservation);
         Console.ReadLine();
         UserMenu.LoginMenu(account);
     }
@@ -96,5 +95,22 @@ public static class ReservationMenu
         Console.WriteLine("Your reservation code is: 12345");
         Console.ReadLine();
         return quantityPeople;
+    }
+
+    public static void SeeReservations(AccountModel account)
+    {
+        Console.Clear();
+        Console.WriteLine("Your reservations:");
+        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation(account);
+        if (UserReservationsList.Count != 0)
+        {
+            for (int i = 0; i < UserReservationsList.Count; i++)
+            {
+                Console.WriteLine($"Reservation {i + 1}: {UserReservationsList[i].ToString()}");
+            }
+        }
+        else Console.WriteLine("You have no reservations");
+        Console.ReadLine();
+        UserMenu.LoginMenu(account);
     }
 }
