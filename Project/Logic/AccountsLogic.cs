@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -41,20 +41,35 @@ class AccountsLogic
 
     public AccountModel GetById(int id)
     {
-        return _accounts.Find(i => i.Id == id)!;
+        return _accounts.Find(i => i.Id == id);
     }
 
     public AccountModel CheckLogin(string email, string password)
     {
         if (email == null || password == null)
         {
-            return null!;
+            return null;
         }
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
-        return CurrentAccount!;
+        return CurrentAccount;
+    }
+
+    public static AccountModel AddAccount(string email, string password, string fullName, bool isAdmin, bool isWaiter)
+    {
+        List<AccountModel> accountsList = AccountsAccess.LoadAll();
+        int nextId = accountsList.Count + 1;
+        AccountModel acc = new AccountModel(nextId, email, password, fullName, isAdmin, isWaiter);
+        accountsList.Add(acc);
+        AccountsAccess.WriteAll(accountsList);
+        return acc;
+    }
+
+    public static bool CheckIfEmailExists(string email)
+    {
+        List<AccountModel> accountsList = AccountsAccess.LoadAll();
+        AccountModel acc = accountsList.Find(i => i.EmailAddress == email);
+        if (acc != null) return true;
+        return false;
     }
 }
-
-
-
 
