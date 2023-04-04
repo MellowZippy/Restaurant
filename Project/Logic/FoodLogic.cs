@@ -49,26 +49,19 @@ class FoodLogic
         return Categories.Distinct().ToList();
     }
 
-    /*
-    public List<FoodModel> FileToFoodList(string path)
-    {
-        List<FoodModel> foodList = new List<FoodModel>();
-
-        if (File.Exists(path))
-        {
-            StreamReader reader = new StreamReader(path);
-            string contents = reader.ReadToEnd();
-            reader.Close();
-            reader.Dispose();
-        }
-
-
-        return foodList;
-    }
-    */
-
     public FoodModel GetById(int id)
     {
         return _foodList.Find(i => i.Id == id)!;
+    }
+
+    public void DeleteById(int id)
+    {
+        foreach (FoodModel value in _foodList)
+        {
+            if (value.Id == id)
+            {
+                _foodList.Remove(id);
+            }
+        }
     }
 }
