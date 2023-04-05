@@ -30,7 +30,7 @@ class ReservationsLogic
 
     public ReservationModel GetById(int id)
     {
-        return _reservations.Find(i => i.Id == id);
+        return _reservations.Find(i => i.Id == id)!;
     }
 
     public static ReservationModel AddReservation(DateTime date, string time, int quantityPeople, string fullName, int accountId)

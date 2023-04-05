@@ -13,16 +13,16 @@ static class UserLogin
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                List<AccountModel> accounts = JsonConvert.DeserializeObject<List<AccountModel>>(json);
+                List<AccountModel> accounts = JsonConvert.DeserializeObject<List<AccountModel>>(json)!;
 
                 // Find an account with a matching email and password
-                AccountModel account = accounts.Find(acc => acc.EmailAddress == email && acc.Password == password);
+                AccountModel account = accounts.Find(acc => acc.EmailAddress == email && acc.Password == password)!;
 
                 return account;
             }
             else
             {
-                return null;
+                return null!;
             }
         }
     }
@@ -34,7 +34,7 @@ static class UserLogin
     }
 
 
-    private static void Login()
+    public static void Login()
     {
         // Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Welcome to the login page\n");
@@ -90,7 +90,7 @@ static class UserLogin
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<AccountModel>>(json);
+            return JsonConvert.DeserializeObject<List<AccountModel>>(json)!;
         }
         else
         {

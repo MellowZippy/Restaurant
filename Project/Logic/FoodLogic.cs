@@ -56,12 +56,7 @@ class FoodLogic
 
     public void DeleteById(int id)
     {
-        foreach (FoodModel value in _foodList)
-        {
-            if (value.Id == id)
-            {
-                _foodList.Remove(id);
-            }
-        }
+        FoodModel foodItem = GetById(id);
+        _foodList.Remove(foodItem);
     }
 }
