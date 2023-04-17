@@ -6,7 +6,7 @@ public static class ReservationMenu
     {
 
         ShowCalender();
-        string time = TimeTable();
+        string time = TimeTable(16, 22);
         int quantityPeople = HowManyPeople();
         AccountModel account = AccountsLogic.CurrentAccount!;
         ReservationModel newReservation = ReservationsLogic.AddReservation(userDate, time, quantityPeople, account.FullName, account.Id);
@@ -67,21 +67,25 @@ public static class ReservationMenu
         else userDate = dateMonth;
     }
 
-    public static string TimeTable()
+    public static string TimeTable(int open, int close)
     {
         Console.Clear();
         Console.WriteLine("Choose a time for your reservation:");
         Console.WriteLine();
-        int opening = 16;
-        int closing = 22;
-        int restaurantOpenTime = closing - opening; // from 16:00 to 22:00 is the restaurant open for testing purposes
+        int restaurantOpenTime = close - open; // from 16:00 to 22:00 is the restaurant open for testing purposes
+        List<string> availableTimes = new List<string>();
         for (int i = 1; i < restaurantOpenTime + 1; i++)
         {
-            Console.WriteLine($"{i}) {opening}:00 - {opening + 1}:00");
-            opening += 1;
+            string aTime = $"{open}:00 - {open + 1}:00";
+            open += 1;
+        }
+        for (int i = 0; i < restaurantOpenTime; i++)
+        {
+            Console.WriteLine($"{i + 1}) " + availableTimes[i]);
         }
         Console.WriteLine();
-        Console.ReadLine();
+        Console.WriteLine("NOT YET DONE");
+        int answer = int.Parse(Console.ReadLine() ?? "");
         return "a time";
     }
 

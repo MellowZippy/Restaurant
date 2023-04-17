@@ -14,5 +14,13 @@
     "fullName": "myNameJeff",
     "Admin": false,
     "Waiter": false
+  },
+  {
+    "id": 3,
+    "emailAddress": "h",
+    "password": "h",
+    "fullName": "pablo",
+    "Admin": false,
+    "Waiter": false
   }
 ]
