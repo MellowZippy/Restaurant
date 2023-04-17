@@ -4,39 +4,10 @@ static class UserLogin
     static private AccountsLogic accountsLogic = new AccountsLogic();
     static private string filePath = "DataSources/accounts.json";
 
-    public class AccountsLogic
-    {
-        private string filePath = "DataSources/accounts.json";
-
-        public AccountModel CheckLogin(string email, string password)
-        {
-            if (File.Exists(filePath))
-            {
-                string json = File.ReadAllText(filePath);
-                List<AccountModel> accounts = JsonConvert.DeserializeObject<List<AccountModel>>(json)!;
-
-                // Find an account with a matching email and password
-                AccountModel account = accounts.Find(acc => acc.EmailAddress == email && acc.Password == password)!;
-
-                return account;
-            }
-            else
-            {
-                return null!;
-            }
-        }
-    }
-
-    public static void Start()
-    {
-        Console.Clear();
-        Login();
-    }
-
-
     public static void Login()
     {
-        // Console.ForegroundColor = ConsoleColor.Blue;
+        // doc: this is where all the users can login, if account is found, they are send to their login menu screen, else they are send back to the home screen with an error message
+        Console.Clear();
         Console.WriteLine("Welcome to the login page\n");
         Console.WriteLine("Please enter your email address");
         string? email = Console.ReadLine();
@@ -47,16 +18,7 @@ static class UserLogin
         if (acc != null)
         {
             Menu.message = $"Welcome back {acc.FullName}\nYou are logged in.\n";
-            if (acc.Admin == true)
-            {
-                Menu.AdminUI();
-            }
-            if (acc.Waiter == true)
-            {
-                Menu.WaiterUI();
-            }
-            else Menu.UserUI();
-            UserMenu.LoginMenu(acc);
+            UserMenu.LoginMenu();
         }
         else
         {
@@ -68,39 +30,29 @@ static class UserLogin
     public static void CreateAccount()
     {
         Console.Clear();
+        Menu.Print();
+        Console.WriteLine("Create account:\n");
         Console.WriteLine("Please enter your email address");
-        string? email = Console.ReadLine();
+        string email = Console.ReadLine() ?? "";
         Console.WriteLine("Please enter your password");
-        string? password = Console.ReadLine();
+        string password = Console.ReadLine() ?? "";
         Console.WriteLine("Please enter your full name");
-        string? fullName = Console.ReadLine();
-
-        List<AccountModel> accounts = GetAccounts();
-        int nextId = accounts.Count + 1;
-        AccountModel acc = new AccountModel(nextId, email!, password!, fullName!, false, false);
-        accounts.Add(acc);
-        SaveAccounts(accounts);
-
-        Menu.message = "Account created successfully\nYou are logged in.\n";
-        UserMenu.LoginMenu(acc);
-    }
-
-    private static List<AccountModel> GetAccounts()
-    {
-        if (File.Exists(filePath))
+        string fullName = Console.ReadLine() ?? "";
+        if (email == "" || password == "" || fullName == "")
         {
-            string json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<AccountModel>>(json)!;
+            Menu.message = "Error, You didn't input any text";
+            CreateAccount();
+        }
+        if (AccountsLogic.CheckIfEmailExists(email) == false)
+        {
+            AccountsLogic.AddAccount(email!, password!, fullName!, false, false);
+            Menu.message = "Account created successfully\nYou are logged in.\n";
+            UserMenu.LoginMenu();
         }
         else
         {
-            return new List<AccountModel>();
+            Menu.message = "Error, account with same email exists.";
+            Menu.Start();
         }
-    }
-
-    private static void SaveAccounts(List<AccountModel> accounts)
-    {
-        string json = JsonConvert.SerializeObject(accounts, Formatting.Indented);
-        File.WriteAllText(filePath, json);
     }
 }

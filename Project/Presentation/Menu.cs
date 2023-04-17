@@ -6,6 +6,12 @@ static class Menu
     {
         if (message != "") Console.WriteLine(message + "\n"); message = "";
     }
+
+    public static void PressEnter()
+    {
+        Console.WriteLine("Press 'Enter' to continue");
+        Console.ReadLine();
+    }
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
