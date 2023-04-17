@@ -4,7 +4,7 @@ class ForeGround
 {
     public static void ForeGroundMain()
     {
-      ForeGroundStartScreen();
+        ForeGroundStartScreen();
     }
 
     private static void ForeGroundStartScreen()
@@ -44,21 +44,21 @@ class ForeGround
 
         switch (choiceUser)
         {
-          case 1:
-            UserLogin.Start();
-            break;
+            case 1:
+                UserLogin.Login();
+                break;
 
-          case 2:
-            UserLogin.CreateAccount();
-            break;
-          
-          case 3:
-            MenuCard.ShowMenuCard();
-            break;
-          
-          case 4:
-            System.Environment.Exit(0);
-            break;
+            case 2:
+                UserLogin.CreateAccount();
+                break;
+
+            case 3:
+                MenuCard.ShowMenuCard();
+                break;
+
+            case 4:
+                System.Environment.Exit(0);
+                break;
         }
 
 
