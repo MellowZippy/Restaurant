@@ -6,5 +6,13 @@
     "fullName": "Test",
     "Admin": false,
     "Waiter": false
+  },
+  {
+    "id": 2,
+    "emailAddress": "jeff",
+    "password": "myName",
+    "fullName": "myNameJeff",
+    "Admin": false,
+    "Waiter": false
   }
 ]

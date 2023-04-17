@@ -156,8 +156,8 @@ class Logic
         while (searchMethod == "invalid") { Menu.message = $"Your input was invalid; choose between {menuMessage}"; searchMethod = SearchOptionsMenu(searchOptions); }
         Console.WriteLine($"Enter the {searchMethod} you want to search");
         string userSearch = Console.ReadLine() ?? "";
-        Console.WriteLine($"| {"id".PadLeft(4, ' ')} | {"Full name".PadLeft(30, ' ')} | {"Email Address".PadLeft(30, ' ')} | {"Password".PadLeft(20, ' ')} |");
-        Console.WriteLine($"|-{"".PadLeft(4, '-')}-|-{"".PadLeft(30, '-')}-|-{"".PadLeft(30, '-')}-|-{"".PadLeft(20, '-')}-|");
+        Console.WriteLine($"| {"id".PadLeft(4, ' ')} | {"Name".PadLeft(30, ' ')} | {"Price".PadLeft(30, ' ')} |");
+        Console.WriteLine($"|-{"".PadLeft(4, '-')}-|-{"".PadLeft(30, '-')}-| ${"".PadLeft(30, '-')}-|");
         if (searchMethod == "id")
         {
             foreach (FoodModel dish in Food)
