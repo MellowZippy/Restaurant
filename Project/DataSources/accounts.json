@@ -1,26 +1,18 @@
 [
   {
-    "Id": 1,
-    "EmailAddress": "n@b.c",
-    "Password": "xyz",
-    "FullName": "Nikola Tesla"
+    "id": 1,
+    "emailAddress": "T",
+    "password": "T",
+    "fullName": "Test",
+    "Admin": false,
+    "Waiter": false
   },
   {
-    "Id": 2,
-    "EmailAddress": "t@b.c",
-    "Password": "xyz",
-    "FullName": "Thomas Edison"
-  },
-  {
-    "Id": 3,
-    "EmailAddress": "dan@gmail.com",
-    "Password": "123",
-    "FullName": "dan"
-  },
-  {
-    "Id": 4,
-    "EmailAddress": "dantheman@gmail.com",
-    "Password": "123",
-    "FullName": "dantheman"
+    "id": 2,
+    "emailAddress": "jeff",
+    "password": "myName",
+    "fullName": "myNameJeff",
+    "Admin": false,
+    "Waiter": false
   }
 ]

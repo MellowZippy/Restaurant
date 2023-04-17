@@ -2,8 +2,7 @@ using System.Text.Json;
 
 static class AccountsAccess
 {
-    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
-
+    public static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
 
     public static List<AccountModel> LoadAll()
     {
@@ -19,4 +18,19 @@ static class AccountsAccess
         File.WriteAllText(path, json);
     }
 
+    public static List<AccountModel> AscIDMyJson()
+    {
+        string json = File.ReadAllText(AccountsAccess.path);
+        var listOb = JsonSerializer.Deserialize<List<AccountModel>>(json);
+        var descListOb = listOb!.OrderBy(x => x.Id).ToList();
+        return descListOb;
+    }
+
+    public static List<AccountModel> AscNameMyJson()
+    {
+        string json = File.ReadAllText(AccountsAccess.path);
+        var listOb = JsonSerializer.Deserialize<List<AccountModel>>(json);
+        var descListOb = listOb!.OrderBy(x => x.FullName).ToList();
+        return descListOb;
+    }
 }

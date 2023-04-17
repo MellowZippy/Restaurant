@@ -2,16 +2,17 @@ public static class ReservationMenu
 {
     public static DateTime userDate;
 
-    public static void MakeReservation(AccountModel account)
+    public static void MakeReservation()
     {
 
         ShowCalender();
         string time = TimeTable();
         int quantityPeople = HowManyPeople();
+        AccountModel account = AccountsLogic.CurrentAccount!;
         ReservationModel newReservation = ReservationsLogic.AddReservation(userDate, time, quantityPeople, account.FullName, account.Id);
         Console.WriteLine($"\n{newReservation.ToString()}\n");
         Console.ReadLine();
-        UserMenu.LoginMenu(account);
+        UserMenu.LoginMenu();
     }
 
     public static void ShowCalender()
@@ -97,11 +98,11 @@ public static class ReservationMenu
         return quantityPeople;
     }
 
-    public static void SeeReservations(AccountModel account)
+    public static void SeeReservations()
     {
         Console.Clear();
         Console.WriteLine("Your reservations:");
-        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation(account);
+        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation();
         if (UserReservationsList.Count != 0)
         {
             for (int i = 0; i < UserReservationsList.Count; i++)
@@ -111,6 +112,6 @@ public static class ReservationMenu
         }
         else Console.WriteLine("You have no reservations");
         Console.ReadLine();
-        UserMenu.LoginMenu(account);
+        UserMenu.LoginMenu();
     }
 }

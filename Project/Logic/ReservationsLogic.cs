@@ -43,12 +43,12 @@ class ReservationsLogic
         return res;
     }
 
-    public static List<ReservationModel> FindAccountReservation(AccountModel account)
+    public static List<ReservationModel> FindAccountReservation()
     {
         List<ReservationModel> reservationsList = new List<ReservationModel>();
         foreach (ReservationModel reservation in _reservations)
         {
-            if (reservation.AccountId == account.Id) reservationsList.Add(reservation);
+            if (reservation.AccountId == AccountsLogic.CurrentAccount!.Id) reservationsList.Add(reservation);
         }
         return reservationsList;
     }
