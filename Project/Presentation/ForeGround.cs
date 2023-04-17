@@ -2,7 +2,7 @@
 
 class ForeGround
 {
-    public static void Main()
+    public static void ForeGroundMain()
     {
       ForeGroundStartScreen();
     }
