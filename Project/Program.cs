@@ -5,7 +5,7 @@ public class Program
         while (true)
         {
             Console.Clear();
-            Menu.Start();
+            ForeGround.ForeGroundMain();
         }
     }
 }
