@@ -26,8 +26,8 @@ public static class ReservationMenu
     {
         Console.Clear();
         var dateMonth = new DateTime(year, month, 1);
-        var headingSpaces = new string(' ', 16 - dateMonth.ToString("MMMM").Length);
-        Console.WriteLine($"{dateMonth.ToString("MMMM")}{headingSpaces}{dateMonth.Year}");
+        var headingSpaces = new string(' ', 13 - dateMonth.ToString("MMMM").Length);
+        Console.WriteLine($"{dateMonth.ToString("MMMM")}{headingSpaces}{dateMonth.ToString("MM")}/{dateMonth.Year}");
         Console.WriteLine();
         Console.WriteLine("Mo Tu We Th Fr Sa Su ");
         var padLeftDays = ((int)dateMonth.DayOfWeek - 1 < 0) ? 6 : (int)dateMonth.DayOfWeek - 1; // instead of DayOfWeek starting at sunday, its now starts at monday
@@ -63,8 +63,37 @@ public static class ReservationMenu
             if (month == 12) Calendar(year + 1, 1);
             else Calendar(year, month + 1);
         }
-        // return the day, month and year in a datetime object
-        else userDate = dateMonth;
+        // returns the day, month and year in a datetime object
+        else
+        {
+            bool isCorrect = false;
+            while (isCorrect == false)
+            {
+                int inputDay = CheckIfInputIsInt("Day");
+                int inputMonth = CheckIfInputIsInt("Month");
+                int inputYear = CheckIfInputIsInt("Year");
+                string dateInString = $"{inputDay.ToString().PadLeft(2, '0')}/{inputMonth.ToString().PadLeft(2, '0')}/{inputYear}";
+                DateTime temp;
+                if (DateTime.TryParse(dateInString, out temp))
+                {
+                    userDate = new DateTime(inputYear, inputMonth, inputDay);
+                    isCorrect = true;
+                }
+                else Console.WriteLine("\nInvalid input, you might have entered a date that doesn't exist. Try again.\n");
+            }
+        }
+    }
+
+    public static int CheckIfInputIsInt(string what)
+    {
+        int i = 0;
+        while (true)
+        {
+            Console.Write($"{what}: ");
+            string input = Console.ReadLine() ?? "";
+            if (int.TryParse(input, out i)) return int.Parse(input);
+            else Console.WriteLine("Invalid input, it has to be a number.");
+        }
     }
 
     public static string TimeTable(int open, int close)
@@ -78,6 +107,7 @@ public static class ReservationMenu
         {
             string aTime = $"{open}:00 - {open + 1}:00";
             open += 1;
+            availableTimes.Add(aTime);
         }
         for (int i = 0; i < restaurantOpenTime; i++)
         {
@@ -86,6 +116,10 @@ public static class ReservationMenu
         Console.WriteLine();
         Console.WriteLine("NOT YET DONE");
         int answer = int.Parse(Console.ReadLine() ?? "");
+        for (int i = 0; i < availableTimes.Count; i++)
+        {
+            if (answer == i + 1) return availableTimes[i];
+        }
         return "a time";
     }
 
@@ -95,8 +129,9 @@ public static class ReservationMenu
         Console.Write("People: ");
         int quantityPeople = int.Parse(Console.ReadLine() ?? "");
         Console.WriteLine("Confirm your reservation by clicking here");
-        Menu.message = "Your reservation has been made.\n";
+        Menu.message = "Your reservation has been made.";
         Console.ReadLine();
+        Console.WriteLine("NOT YET DONE");
         Console.WriteLine("Your reservation code is: 12345");
         Console.ReadLine();
         return quantityPeople;

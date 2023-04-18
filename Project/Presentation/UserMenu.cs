@@ -23,8 +23,8 @@ static class UserMenu
         {
             case "1": ReservationMenu.MakeReservation(); break;
             case "2": ReservationMenu.SeeReservations(); break;
-            case "3": Console.WriteLine("not yet implemented feature"); break;
-            case "4": Console.WriteLine("not yet implemented feature"); break;
+            case "3": Menu.message = "! not yet implemented feature !"; UserMenu.LoginMenu(); break;
+            case "4": Menu.message = "! not yet implemented feature !"; UserMenu.LoginMenu(); break;
             case "back": Menu.Start(); break;
             case "A": Logic.SearchItemStart("Accounts"); break;
             case "B": Logic.OrderByStart("Accounts"); break;

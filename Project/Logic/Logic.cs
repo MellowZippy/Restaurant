@@ -26,6 +26,7 @@ class Logic
             Console.WriteLine($"{i + 1}) Search by {searchOptions[i]}");
         }
         int action = int.Parse(Console.ReadLine() ?? "0");
+        Console.Clear();
         for (int i = 0; i < searchOptions.Count; i++)
         {
             if (action == i + 1) return searchOptions[i];
@@ -43,6 +44,7 @@ class Logic
             Console.WriteLine($"{i + 1}) Order by {OrderOptions[i]}");
         }
         int action = int.Parse(Console.ReadLine() ?? "0");
+        Console.Clear();
         for (int i = 0; i < OrderOptions.Count; i++)
         {
             if (action == i + 1) return OrderOptions[i];
