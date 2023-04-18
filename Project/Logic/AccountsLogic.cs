@@ -54,11 +54,11 @@ class AccountsLogic
         return CurrentAccount!;
     }
 
-    public static AccountModel AddAccount(string email, string password, string fullName, bool isAdmin, bool isWaiter)
+    public static AccountModel AddAccount(string email, string password, string fullName, bool isAdmin, bool isWaiter, bool isCustomer)
     {
         List<AccountModel> accountsList = AccountsAccess.LoadAll();
         int nextId = accountsList.Count + 1;
-        AccountModel acc = new AccountModel(nextId, email, password, fullName, isAdmin, isWaiter);
+        AccountModel acc = new AccountModel(nextId, email, password, fullName, isAdmin, isWaiter, isCustomer);
         accountsList.Add(acc);
         AccountsAccess.WriteAll(accountsList);
         return acc;
