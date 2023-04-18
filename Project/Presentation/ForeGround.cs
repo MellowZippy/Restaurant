@@ -40,7 +40,7 @@ class ForeGround
         System.Console.WriteLine("|___________________________________________________________________________________________________________|");
         System.Console.WriteLine("");
 
-        int choiceUser = Convert.ToInt32(Console.ReadLine());
+        int choiceUser = ReservationMenu.CheckIfInputIsInt();
 
         switch (choiceUser)
         {

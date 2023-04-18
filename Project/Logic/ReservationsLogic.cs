@@ -33,11 +33,11 @@ class ReservationsLogic
         return _reservations.Find(i => i.Id == id)!;
     }
 
-    public static ReservationModel AddReservation(DateTime date, string time, int quantityPeople, string fullName, int accountId)
+    public static ReservationModel AddReservation(DateTime date, string time, int quantityPeople, string fullName, int accountId, string reservationCode)
     {
         List<ReservationModel> reservationsList = ReservationsAccess.LoadAll();
         int nextId = reservationsList.Count + 1;
-        ReservationModel res = new ReservationModel(nextId, date, time, quantityPeople, fullName, accountId);
+        ReservationModel res = new ReservationModel(nextId, date, time, quantityPeople, fullName, accountId, reservationCode);
         reservationsList.Add(res);
         ReservationsAccess.WriteAll(reservationsList);
         return res;

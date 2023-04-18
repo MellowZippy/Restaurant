@@ -21,9 +21,12 @@ public class ReservationModel
     [JsonPropertyName("accountId")]
     public int AccountId { get; set; }
 
+    [JsonPropertyName("reservationCode")]
+    public string ReservationCode { get; set; }
 
 
-    public ReservationModel(int id, DateTime date, string time, int quantityPeople, string fullName, int accountId)
+
+    public ReservationModel(int id, DateTime date, string time, int quantityPeople, string fullName, int accountId, string reservationCode)
     {
         Id = id;
         Date = date;
@@ -31,11 +34,12 @@ public class ReservationModel
         QuantityPeople = quantityPeople;
         FullName = fullName;
         AccountId = accountId;
+        ReservationCode = reservationCode;
     }
 
     public override string ToString()
     {
-        return $"Date: {Date}, Time: {Time}, QuantityPeople: {QuantityPeople}, CustomerName: {FullName}, AccountId: {AccountId}";
+        return $"Date: {Date}, Time: {Time}, QuantityPeople: {QuantityPeople}, CustomerName: {FullName}, AccountId: {AccountId}, ReservationCode: {ReservationCode}";
     }
 }
 
