@@ -15,7 +15,8 @@ public static class Menu
 
     public static void HandleLogin()
     {
-        if (AccountsLogic.CurrentAccount.IsCustomer == true) UserMenu.UserUI();
+        if (AccountsLogic.CurrentAccount == null) throw new NullReferenceException("Error. Current account is null.");
+        else if (AccountsLogic.CurrentAccount.IsCustomer == true) UserMenu.UserUI();
         else if (AccountsLogic.CurrentAccount.IsAdmin == true) AdminMenu.AdminUI();
         else if (AccountsLogic.CurrentAccount.IsWaiter == true) WaiterMenu.WaiterUI();
         else
