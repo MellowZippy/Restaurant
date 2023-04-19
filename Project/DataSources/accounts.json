@@ -1,11 +1,29 @@
 [
   {
     "id": 1,
-    "emailAddress": "T",
+    "emailAddress": "Customer",
     "password": "T",
-    "fullName": "Test",
-    "Admin": false,
-    "Waiter": false,
-    "Costumer": true
+    "fullName": "Customer UI",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
+  },
+  {
+    "id": 2,
+    "emailAddress": "Waiter",
+    "password": "T",
+    "fullName": "Waiter UI",
+    "isAdmin": false,
+    "isWaiter": true,
+    "isCustomer": false
+  },
+  {
+    "id": 3,
+    "emailAddress": "Admin",
+    "password": "T",
+    "fullName": "Admin UI",
+    "isAdmin": true,
+    "isWaiter": false,
+    "isCustomer": false
   }
 ]

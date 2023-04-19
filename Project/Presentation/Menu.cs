@@ -15,12 +15,12 @@ static class Menu
 
     public static void HandleLogin()
     {
-        if (AccountsLogic.CurrentAccount.Customer == true) UserUI();
-        else if (AccountsLogic.CurrentAccount.Admin == true) AdminUI();
-        else if (AccountsLogic.CurrentAccount.Waiter == true) WaiterUI();
+        if (AccountsLogic.CurrentAccount.IsCustomer == true) UserUI();
+        else if (AccountsLogic.CurrentAccount.IsAdmin == true) AdminUI();
+        else if (AccountsLogic.CurrentAccount.IsWaiter == true) WaiterUI();
         else
         {
-            throw new DataMisalignedException("Account proporties are wrong.");
+            throw new DataMisalignedException("Account proporties are wrong. See in accounts.json if every account has the right booleans.");
         }
     }
     //This shows the menu. You can call back to this method to show the menu again
@@ -66,7 +66,7 @@ static class Menu
         }
     }
 
-    static public void UserUI()
+    public static void UserUI()
     {
         Console.Clear();
         Menu.Print();
@@ -83,14 +83,35 @@ static class Menu
             case "2": ReservationMenu.SeeReservations(); break;
             case "3": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
             case "4": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
-            case "BACK": Menu.Start(); break;
+            case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
             default: Menu.UserUI(); break;
         }
     }
 
     static public void WaiterUI()
     {
-        Console.WriteLine("hello waiter");
+        Console.Clear();
+        Menu.Print();
+        Console.WriteLine("Enter 1 to see the menu card");
+        Console.WriteLine("Enter 2 to manage the customer's presence");
+        Console.WriteLine("Enter 3 to manage the customer's order");
+        Console.WriteLine("Enter 4 to calculate the receipt");
+        Console.WriteLine("Enter 5 to see the information of the reservations");
+        Console.WriteLine("Enter 6 to search a reservation's information");
+        Console.WriteLine("Enter 'back' to go to the home screen");
+        string input = Console.ReadLine() ?? "";
+        Console.Clear();
+        switch (input.ToUpper())
+        {
+            case "1": MenuCard.ShowMenuCard(); break;
+            case "2": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
+            case "3": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
+            case "4": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
+            case "5": Logic.SearchItemStart("Reservations"); break;
+            case "6": Logic.OrderByStart("Reservations"); break;
+            case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
+            default: Menu.UserUI(); break;
+        }
     }
 
     static public void Start()
