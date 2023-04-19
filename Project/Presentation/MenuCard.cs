@@ -19,5 +19,12 @@ static class MenuCard
         Console.ForegroundColor = ConsoleColor.White;
         Menu.PressEnter();
     }
+
+    public static void ChangeMenuCard()
+    {
+        Console.WriteLine("What item do you want to change?");
+        Console.Write("ID: ");
+        int choiceUser = ReservationMenu.CheckIfInputIsInt();
+    }
 }
 
