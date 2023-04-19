@@ -4,6 +4,9 @@ static class UserMenu
     {
         Console.Clear();
         Menu.Print();
+        Console.WriteLine(new string('-', 20));
+        Console.WriteLine("User UI:");
+        Console.WriteLine(new string('-', 20));
         Console.WriteLine("Enter 1 to make a reservation");
         Console.WriteLine("Enter 2 to see your reservations");
         Console.WriteLine("Enter 3 to change your reservation");

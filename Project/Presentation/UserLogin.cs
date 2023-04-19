@@ -17,7 +17,6 @@ static class UserLogin
         AccountModel acc = accountsLogic.CheckLogin(email!, password!);
         if (acc != null)
         {
-            Menu.message = $"Welcome back {acc.FullName}\nYou are logged in.\n";
             Menu.HandleLogin();
         }
         else

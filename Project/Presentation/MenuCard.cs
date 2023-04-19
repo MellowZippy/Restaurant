@@ -8,7 +8,7 @@ static class MenuCard
         Console.WriteLine("EL MENU".PadLeft(290, ' '));
         Console.WriteLine();
         Console.ForegroundColor = ConsoleColor.White;
- 
+
         List<FoodModel> foodList = FoodAccess.LoadAll();
         foreach (FoodModel foodItem in foodList)
         {
@@ -18,6 +18,8 @@ static class MenuCard
         }
         Console.ForegroundColor = ConsoleColor.White;
         Menu.PressEnter();
+        if (AccountsLogic.CurrentAccount != null) Menu.HandleLogin();
+
     }
 
     public static void ChangeMenuCard()
