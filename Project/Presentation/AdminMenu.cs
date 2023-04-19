@@ -2,6 +2,8 @@ public static class AdminMenu
 {
     public static void AdminUI()
     {
+        Console.Clear();
+        Menu.Print();
         Console.WriteLine("Admin commands:");
         Console.WriteLine("Enter 'A' to search an account");
         Console.WriteLine("Enter 'B' to see the accounts ordered");
@@ -22,7 +24,7 @@ public static class AdminMenu
             case "D": SearchLogic.OrderByStart("Food"); break;
             case "E": SearchLogic.SearchItemStart("Reservations"); break;
             case "F": SearchLogic.OrderByStart("Reservations"); break;
-            case "BACK": Menu.Start(); break;
+            case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
             default: AdminMenu.AdminUI(); break;
         }
     }
