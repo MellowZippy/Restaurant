@@ -45,7 +45,7 @@ static class UserLogin
         }
         if (AccountsLogic.CheckIfEmailExists(email) == false)
         {
-            AccountsLogic.AddAccount(email!, password!, fullName!, false, false);
+            AccountsLogic.AddAccount(email!, password!, fullName!, false, false, true);
             Menu.message = "Account created successfully\nYou are logged in.\n";
             UserMenu.LoginMenu();
         }

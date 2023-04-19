@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": 1,
+    "date": "2023-05-01T00:00:00",
+    "time": "a time",
+    "quantityPeople": 5,
+    "fullName": "pablo",
+    "accountId": 3
+  },
+  {
+    "id": 2,
+    "date": "2023-06-01T00:00:00",
+    "time": "18:00 - 19:00",
+    "quantityPeople": 5,
+    "fullName": "Test",
+    "accountId": 1
+  },
+  {
+    "id": 3,
+    "date": "2023-04-15T00:00:00",
+    "time": "20:00 - 21:00",
+    "quantityPeople": 3,
+    "fullName": "Test",
+    "accountId": 1
+  },
+  {
+    "id": 4,
+    "date": "2025-12-03T00:00:00",
+    "time": "17:00 - 18:00",
+    "quantityPeople": 3,
+    "fullName": "Test",
+    "accountId": 1
+  },
+  {
+    "id": 5,
+    "date": "2023-04-30T00:00:00",
+    "time": "21:00 - 22:00",
+    "quantityPeople": 10000,
+    "fullName": "Test",
+    "accountId": 1
+  },
+  {
+    "id": 6,
+    "date": "2023-08-05T00:00:00",
+    "time": "16:00 - 17:00",
+    "quantityPeople": 10000,
+    "fullName": "Test",
+    "accountId": 1
+  }
+]
