@@ -16,6 +16,21 @@ public static class ReservationMenu
         Menu.HandleLogin();
     }
 
+    public static void ChangeReservation()
+    {
+        Console.Clear();
+        Menu.Print();
+        Menu.Header("Change your reservation:");
+        Console.WriteLine("NOT YET DONE");
+    }
+
+    public static void ChooseReservation()
+    {
+        SeeReservations();
+        Console.WriteLine("Which reservation would you like to change?");
+        Console.WriteLine("NOT YET DONE");
+    }
+
     public static void ShowCalender()
     {
         int UserYear = DateTime.Now.Year;

@@ -7,6 +7,13 @@ public static class Menu
         if (message != "") Console.WriteLine(message + "\n"); message = "";
     }
 
+    public static void Header(string message)
+    {
+        Console.WriteLine(new string('-', 20));
+        Console.WriteLine(message);
+        Console.WriteLine(new string('-', 20));
+    }
+
     public static void PressEnter()
     {
         Console.WriteLine("Press 'Enter' to continue");

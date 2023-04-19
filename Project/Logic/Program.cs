@@ -56,9 +56,9 @@ class ReservationSystem
     }
 }
 
-class Program
+class Program2
 {
-    static void Main(string[] args)
+    static void Main2(string[] args)
     {
         ReservationSystem reservationSystem = new ReservationSystem();
 
@@ -94,7 +94,7 @@ class Program
                 File.WriteAllText("reservation.json", json);
 
                 Console.WriteLine("Reservation added successfully.");
-                
+
             }
             else if (choice == 2)
             {
@@ -118,32 +118,32 @@ class Program
                 File.WriteAllText("reservation.json", json);
 
                 Console.WriteLine("Reservation changed successfully.");
-                
+
             }
             else if (choice == 3)
             {
                 // Cancel an existing reservation
-                            Console.WriteLine("Enter the name of the reservation to cancel: ");
-            string cancel_name = Console.ReadLine();
+                Console.WriteLine("Enter the name of the reservation to cancel: ");
+                string cancel_name = Console.ReadLine();
 
-            reservationSystem.cancel_reservation(cancel_name);
+                reservationSystem.cancel_reservation(cancel_name);
 
-            // Write updated reservations to file
-            string json = JsonSerializer.Serialize(reservationSystem.get_reservations());
-            File.WriteAllText("reservation.json", json);
+                // Write updated reservations to file
+                string json = JsonSerializer.Serialize(reservationSystem.get_reservations());
+                File.WriteAllText("reservation.json", json);
 
-            Console.WriteLine("Reservation canceled successfully.");
-            
-        }
-        else if (choice == 4)
-        {
-            // Exit the program
-            break;
-        }
-        else
-        {
-            Console.WriteLine("Invalid choice. Please choose again.");
+                Console.WriteLine("Reservation canceled successfully.");
+
+            }
+            else if (choice == 4)
+            {
+                // Exit the program
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please choose again.");
+            }
         }
     }
-}
 }
