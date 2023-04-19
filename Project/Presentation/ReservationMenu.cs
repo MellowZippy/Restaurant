@@ -21,14 +21,35 @@ public static class ReservationMenu
         Console.Clear();
         Menu.Print();
         Menu.Header("Change your reservation:");
-        Console.WriteLine("NOT YET DONE");
+        ReservationModel toChangeReservation = ChooseReservation();
+        if (toChangeReservation == null) Menu.HandleLogin();
+        else
+        {
+            ReservationsLogic.RemoveReservation(toChangeReservation);
+            Menu.message = "Choose a new reservation";
+            MakeReservation();
+        }
     }
 
-    public static void ChooseReservation()
+    public static ReservationModel ChooseReservation()
     {
+        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation();
+        if (UserReservationsList.Count == 0)
+        {
+            Menu.message = "You have no reservations";
+            return null!;
+        }
         SeeReservations();
-        Console.WriteLine("Which reservation would you like to change?");
-        Console.WriteLine("NOT YET DONE");
+        Console.WriteLine("Which reservation would you like to change? Enter their number:");
+        while (true)
+        {
+            int action = CheckIfInputIsInt();
+            for (int i = 0; i < UserReservationsList.Count; i++)
+            {
+                if (action == i + 1) return UserReservationsList[i];
+            }
+            Console.WriteLine("Invalid input. Choose a valid number.");
+        }
     }
 
     public static void ShowCalender()
@@ -41,6 +62,7 @@ public static class ReservationMenu
     private static void Calendar(int year, int month)
     {
         Console.Clear();
+        Menu.Print();
         var dateMonth = new DateTime(year, month, 1);
         var headingSpaces = new string(' ', 13 - dateMonth.ToString("MMMM").Length);
         Console.WriteLine(new string('-', 20));
@@ -231,7 +253,6 @@ public static class ReservationMenu
             }
         }
         else Console.WriteLine("You have no reservations");
-        Console.ReadLine();
-        Menu.HandleLogin();
+        Menu.PressEnter();
     }
 }

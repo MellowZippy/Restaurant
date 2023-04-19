@@ -43,6 +43,15 @@ class ReservationsLogic
         return res;
     }
 
+    public static void RemoveReservation(ReservationModel reservation)
+    {
+        // NOT YET DONE
+        List<ReservationModel> reservationsList = ReservationsAccess.LoadAll();
+        int index = reservationsList.FindIndex(x => x.Id == reservation.Id);
+        reservationsList.RemoveAt(index);
+        ReservationsAccess.WriteAll(reservationsList);
+    }
+
     public static List<ReservationModel> FindAccountReservation()
     {
         List<ReservationModel> reservationsList = new List<ReservationModel>();
