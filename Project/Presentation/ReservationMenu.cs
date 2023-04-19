@@ -5,7 +5,6 @@ public static class ReservationMenu
 
     public static void MakeReservation()
     {
-
         ShowCalender();
         string time = TimeTable(16, 22);
         int quantityPeople = HowManyPeople();
