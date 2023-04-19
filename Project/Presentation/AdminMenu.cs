@@ -1,6 +1,6 @@
 public static class AdminMenu
 {
-    public static void ShowAdminCommands()
+    public static void AdminUI()
     {
         Console.WriteLine("Admin commands:");
         Console.WriteLine("Enter 'A' to search an account");
@@ -23,11 +23,11 @@ public static class AdminMenu
             case "E": SearchLogic.SearchItemStart("Reservations"); break;
             case "F": SearchLogic.OrderByStart("Reservations"); break;
             case "BACK": Menu.Start(); break;
-            default: UserMenu.LoginMenu(); break;
+            default: AdminMenu.AdminUI(); break;
         }
     }
 
-    static public void AdminUI()
+    static public void ShowAdminCommands()
     {
         Console.WriteLine("Enter 1 to see all reservations");
         Console.WriteLine("Enter 2 to see Menu");

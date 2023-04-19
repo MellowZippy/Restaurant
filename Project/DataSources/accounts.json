@@ -1,38 +1,29 @@
 [
   {
     "id": 1,
-    "emailAddress": "T",
+    "emailAddress": "Customer",
     "password": "T",
-    "fullName": "Test",
-    "Admin": false,
-    "Waiter": false,
-    "Costumer": false
+    "fullName": "Customer UI",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
   },
   {
     "id": 2,
-    "emailAddress": "jeff",
-    "password": "myName",
-    "fullName": "myNameJeff",
-    "Admin": false,
-    "Waiter": false,
-    "Costumer": false
+    "emailAddress": "Waiter",
+    "password": "T",
+    "fullName": "Waiter UI",
+    "isAdmin": false,
+    "isWaiter": true,
+    "isCustomer": false
   },
   {
     "id": 3,
-    "emailAddress": "h",
-    "password": "h",
-    "fullName": "pablo",
-    "Admin": false,
-    "Waiter": false,
-    "Costumer": false
-  },
-  {
-    "id": 4,
-    "emailAddress": "dan@gmail.com",
-    "password": "dan123",
-    "fullName": "dan the man",
-    "Admin": true,
-    "Waiter": false,
-    "Costumer": false
+    "emailAddress": "Admin",
+    "password": "T",
+    "fullName": "Admin UI",
+    "isAdmin": true,
+    "isWaiter": false,
+    "isCustomer": false
   }
 ]

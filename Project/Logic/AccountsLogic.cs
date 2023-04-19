@@ -5,7 +5,7 @@ using System.Text.Json;
 
 
 //This class is not static so later on we can use inheritance and interfaces
-class AccountsLogic
+public class AccountsLogic
 {
     private List<AccountModel> _accounts;
 
@@ -19,6 +19,8 @@ class AccountsLogic
         _accounts = AccountsAccess.LoadAll();
     }
 
+
+    public static void SetCurrentAccount(AccountModel acc) => CurrentAccount = acc;
 
     public void UpdateList(AccountModel acc)
     {

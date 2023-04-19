@@ -15,47 +15,13 @@ public static class Menu
 
     public static void HandleLogin()
     {
-        if (AccountsLogic.CurrentAccount.Customer == true) UserUI();
-        else if (AccountsLogic.CurrentAccount.Admin == true) AdminMenu.AdminUI();
-        else if (AccountsLogic.CurrentAccount.Waiter == true) WaiterUI();
+        if (AccountsLogic.CurrentAccount.IsCustomer == true) UserMenu.UserUI();
+        else if (AccountsLogic.CurrentAccount.IsAdmin == true) AdminMenu.AdminUI();
+        else if (AccountsLogic.CurrentAccount.IsWaiter == true) WaiterMenu.WaiterUI();
         else
         {
-            throw new DataMisalignedException("Account proporties are wrong.");
+            throw new DataMisalignedException("Account proporties are wrong. See in accounts.json if every account has the right booleans.");
         }
-    }
-    //This shows the menu. You can call back to this method to show the menu again
-    //after another presentation method is completed.
-    //You could edit this to show different menus depending on the user's role
-    
-
-    static public void UserUI()
-    {
-        Console.Clear();
-        Menu.Print();
-        Console.WriteLine("Enter 1 to make a reservation");
-        Console.WriteLine("Enter 2 to see your reservations");
-        Console.WriteLine("Enter 3 to change your reservation");
-        Console.WriteLine("Enter 4 to cancel your reservation");
-        Console.WriteLine("Enter 'back' to go to the home screen");
-        string input = Console.ReadLine() ?? "";
-        Console.Clear();
-        switch (input.ToUpper())
-        {
-            case "1": ReservationMenu.MakeReservation(); break;
-            case "2": ReservationMenu.SeeReservations(); break;
-            case "3": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
-            case "4": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
-            case "BACK": Menu.Start(); break;
-            default: Menu.UserUI(); break;
-        }
-        Console.WriteLine("Invalid input");
-        AdminMenu.AdminUI();
-
-    }
-
-    static public void WaiterUI()
-    {
-        Console.WriteLine("hello waiter");
     }
 
     static public void Start()
