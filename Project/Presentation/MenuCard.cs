@@ -17,7 +17,7 @@ static class MenuCard
 
         }
         Console.ForegroundColor = ConsoleColor.White;
-        Menu.Pause();
+        Menu.PressEnter();
     }
 }
 

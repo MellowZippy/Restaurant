@@ -1,4 +1,4 @@
-static class Menu
+public static class Menu
 {
     public static string message = "";
 
@@ -16,7 +16,7 @@ static class Menu
     public static void HandleLogin()
     {
         if (AccountsLogic.CurrentAccount.Customer == true) UserUI();
-        else if (AccountsLogic.CurrentAccount.Admin == true) AdminUI();
+        else if (AccountsLogic.CurrentAccount.Admin == true) AdminMenu.AdminUI();
         else if (AccountsLogic.CurrentAccount.Waiter == true) WaiterUI();
         else
         {
@@ -92,9 +92,4 @@ static class Menu
         }
     }
 
-    static public void Pause()
-    {
-        Console.Write("Press enter to continue");
-        Console.ReadLine();
-    }
 }

@@ -1,4 +1,4 @@
-static class AdminMenu
+public static class AdminMenu
 {
     public static void ShowAdminCommands()
     {
