@@ -1,18 +1,19 @@
 public static class ReservationMenu
 {
+    public static Random random = new Random();
     public static DateTime userDate;
 
     public static void MakeReservation()
     {
-
         ShowCalender();
         string time = TimeTable(16, 22);
         int quantityPeople = HowManyPeople();
+        string reservationCode = ConfirmReservation();
         AccountModel account = AccountsLogic.CurrentAccount!;
-        ReservationModel newReservation = ReservationsLogic.AddReservation(userDate, time, quantityPeople, account.FullName, account.Id);
+        ReservationModel newReservation = ReservationsLogic.AddReservation(userDate, time, quantityPeople, account.FullName, account.Id, reservationCode);
         Console.WriteLine($"\n{newReservation.ToString()}\n");
         Console.ReadLine();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 
     public static void ShowCalender()
@@ -27,6 +28,9 @@ public static class ReservationMenu
         Console.Clear();
         var dateMonth = new DateTime(year, month, 1);
         var headingSpaces = new string(' ', 13 - dateMonth.ToString("MMMM").Length);
+        Console.WriteLine(new string('-', 20));
+        Console.WriteLine("Calendar");
+        Console.WriteLine();
         Console.WriteLine($"{dateMonth.ToString("MMMM")}{headingSpaces}{dateMonth.ToString("MM")}/{dateMonth.Year}");
         Console.WriteLine();
         Console.WriteLine("Mo Tu We Th Fr Sa Su ");
@@ -52,6 +56,8 @@ public static class ReservationMenu
         }
         Console.WriteLine("\n");
         Console.WriteLine("Use LEFT ARROW and RIGHT ARROW to navigate months!");
+        Console.WriteLine(new string('-', 20));
+        Console.WriteLine("Press 'Enter' to start choosing.");
         var action = Console.ReadKey().Key;
         if (action == ConsoleKey.LeftArrow)
         {
@@ -69,19 +75,23 @@ public static class ReservationMenu
             bool isCorrect = false;
             while (isCorrect == false)
             {
-                Console.Write("Day: ");
-                int inputDay = CheckIfInputIsInt();
-                Console.Write("Month: ");
-                int inputMonth = CheckIfInputIsInt();
-                Console.Write("Year: ");
-                int inputYear = CheckIfInputIsInt();
+                int inputDay = CheckIfInputIsInt("Day");
+                int inputMonth = CheckIfInputIsInt("Month");
+                int inputYear = CheckIfInputIsInt("Year");
                 string dateInString = $"{inputDay.ToString().PadLeft(2, '0')}/{inputMonth.ToString().PadLeft(2, '0')}/{inputYear}";
                 DateTime temp;
                 if (DateTime.TryParse(dateInString, out temp))
                 {
-                    userDate = new DateTime(inputYear, inputMonth, inputDay);
-                    if (DateTime.Compare(DateTime.Now, userDate) < 0) isCorrect = true;
-                    else Console.WriteLine("Invalid date, this date has already passed. Try again.");
+                    try
+                    {
+                        userDate = new DateTime(inputYear, inputMonth, inputDay);
+                        if (DateTime.Compare(DateTime.Now, userDate) < 0) isCorrect = true;
+                        else Console.WriteLine("\nInvalid input, this date has already passed. Try again.\n");
+                    }
+                    catch
+                    {
+                        Console.WriteLine("\nInvalid input, date doesnt exist. Try again.\n");
+                    }
                 }
                 else Console.WriteLine("\nInvalid input, date doesn't exist. Try again.\n");
             }
@@ -93,6 +103,18 @@ public static class ReservationMenu
         int i = 0;
         while (true)
         {
+            string input = Console.ReadLine() ?? "";
+            if (int.TryParse(input, out i)) return int.Parse(input);
+            else Console.WriteLine("Invalid input, your input has to be a number.");
+        }
+    }
+
+    public static int CheckIfInputIsInt(string what)
+    {
+        int i = 0;
+        while (true)
+        {
+            Console.Write($"{what}: ");
             string input = Console.ReadLine() ?? "";
             if (int.TryParse(input, out i)) return int.Parse(input);
             else Console.WriteLine("Invalid input, it has to be a number.");
@@ -137,13 +159,48 @@ public static class ReservationMenu
         Console.Clear();
         Console.Write("People: ");
         int quantityPeople = CheckIfInputIsInt();
-        Console.WriteLine("Confirm your reservation by clicking here");
-        Menu.message = "Your reservation has been made.";
-        Console.ReadLine();
-        Console.WriteLine("NOT YET DONE");
-        Console.WriteLine("Your reservation code is: 12345");
-        Console.ReadLine();
         return quantityPeople;
+    }
+
+    public static string ConfirmReservation()
+    {
+        Console.WriteLine("Confirm your reservation by pressing 'Enter' or enter 'cancel' to cancel");
+        string action = Console.ReadLine() ?? "";
+        if (action == "cancel")
+        {
+            Menu.message = "Your reservation has been canceled";
+            return "";
+        }
+        else
+        {
+            Menu.message = "Your reservation has been made.";
+            string reservationCode = CreateReservationCode();
+            Console.WriteLine($"Your reservation code is: {reservationCode}\n");
+            Menu.PressEnter();
+            return reservationCode;
+        }
+    }
+
+    public static string CreateReservationCode()
+    {
+        int lengthOfReservationCode = 5;
+        char[] keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890".ToCharArray();
+
+        List<ReservationModel> reservations = ReservationsAccess.LoadAll();
+        List<string> allResCodes = new List<string>();
+        foreach (ReservationModel reservation in reservations)
+        {
+            allResCodes.Add(reservation.ReservationCode);
+        }
+        while (true)
+        {
+            string resCode = "";
+            for (int i = 0; i < lengthOfReservationCode; i++)
+            {
+                resCode += keys[random.Next(0, keys.Length - 1)];
+            }
+            if (!allResCodes.Contains(resCode)) return resCode;
+        }
     }
 
     public static void SeeReservations()
@@ -160,6 +217,6 @@ public static class ReservationMenu
         }
         else Console.WriteLine("You have no reservations");
         Console.ReadLine();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 }

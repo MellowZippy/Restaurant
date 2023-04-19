@@ -18,7 +18,7 @@ static class UserLogin
         if (acc != null)
         {
             Menu.message = $"Welcome back {acc.FullName}\nYou are logged in.\n";
-            UserMenu.LoginMenu();
+            Menu.HandleLogin();
         }
         else
         {
@@ -47,7 +47,7 @@ static class UserLogin
         {
             AccountsLogic.AddAccount(email!, password!, fullName!, false, false, true);
             Menu.message = "Account created successfully\nYou are logged in.\n";
-            UserMenu.LoginMenu();
+            Menu.HandleLogin();
         }
         else
         {

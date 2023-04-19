@@ -105,7 +105,7 @@ class SearchLogic
             Console.WriteLine("Error");
         }
         Menu.PressEnter();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 
     // data gets displayed ordered by the user's preference.
@@ -143,7 +143,7 @@ class SearchLogic
             Console.WriteLine("Error");
         }
         Menu.PressEnter();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 
     public static void FoodSearch()
@@ -187,7 +187,7 @@ class SearchLogic
             Console.WriteLine("Error");
         }
         Menu.PressEnter();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 
     public static void FoodOrderBy()
@@ -233,7 +233,7 @@ class SearchLogic
             Console.WriteLine("Error");
         }
         Menu.PressEnter();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 
     public static void ReservationsSearch()
@@ -299,7 +299,7 @@ class SearchLogic
             Console.WriteLine("Error");
         }
         Menu.PressEnter();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 
     public static void ReservationOrderBy()
@@ -354,6 +354,6 @@ class SearchLogic
             Console.WriteLine("Error");
         }
         Menu.PressEnter();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 }

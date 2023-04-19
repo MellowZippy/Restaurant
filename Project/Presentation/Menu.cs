@@ -12,6 +12,17 @@ static class Menu
         Console.WriteLine("Press 'Enter' to continue");
         Console.ReadLine();
     }
+
+    public static void HandleLogin()
+    {
+        if (AccountsLogic.CurrentAccount.Customer == true) UserUI();
+        else if (AccountsLogic.CurrentAccount.Admin == true) AdminUI();
+        else if (AccountsLogic.CurrentAccount.Waiter == true) WaiterUI();
+        else
+        {
+            throw new DataMisalignedException("Account proporties are wrong.");
+        }
+    }
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
@@ -19,26 +30,23 @@ static class Menu
 
     static public void UserUI()
     {
-        Console.WriteLine("Enter 1 to see your Reservation");
-        Console.WriteLine("Enter 2 to make your Reservation");
-        Console.WriteLine("Enter 3 to change your Reservation");
-        Console.WriteLine("Enter 4 to remove your Reservation");
-        string input = Console.ReadLine()!;
-        if (input == "1")
+        Console.Clear();
+        Menu.Print();
+        Console.WriteLine("Enter 1 to make a reservation");
+        Console.WriteLine("Enter 2 to see your reservations");
+        Console.WriteLine("Enter 3 to change your reservation");
+        Console.WriteLine("Enter 4 to cancel your reservation");
+        Console.WriteLine("Enter 'back' to go to the home screen");
+        string input = Console.ReadLine() ?? "";
+        Console.Clear();
+        switch (input.ToUpper())
         {
-            //Method to see all reservation
-        }
-        else if (input == "2")
-        {
-            //Method to make your reservation
-        }
-        else if (input == "3")
-        {
-            //Method to change your reservation
-        }
-        else if (input == "4")
-        {
-            //Method to remove your reservation
+            case "1": ReservationMenu.MakeReservation(); break;
+            case "2": ReservationMenu.SeeReservations(); break;
+            case "3": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
+            case "4": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
+            case "BACK": Menu.Start(); break;
+            default: Menu.UserUI(); break;
         }
         Console.WriteLine("Invalid input");
         AdminMenu.AdminUI();

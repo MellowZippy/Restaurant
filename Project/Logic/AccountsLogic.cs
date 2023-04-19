@@ -60,6 +60,7 @@ class AccountsLogic
         int nextId = accountsList.Count + 1;
         AccountModel acc = new AccountModel(nextId, email, password, fullName, isAdmin, isWaiter, isCustomer);
         accountsList.Add(acc);
+        CurrentAccount = acc;
         AccountsAccess.WriteAll(accountsList);
         return acc;
     }

@@ -22,19 +22,18 @@ public class AccountModel
     public bool Waiter { get; set; }
 
     [JsonPropertyName("Costumer")]
-    public bool Costumer { get; set; }
+    public bool Customer { get; set; }
 
-    public AccountModel(int id, string emailAddress, string password, string fullName, bool Admin, bool Waiter, bool Costumer)
+    public AccountModel(int id, string emailAddress, string password, string fullName, bool isAdmin, bool isWaiter, bool isCustomer)
     {
         Id = id;
         EmailAddress = emailAddress;
         Password = password;
         FullName = fullName;
-        Admin = false;
-        Waiter = false;
-        Costumer = true;
+        Admin = isAdmin;
+        Waiter = isWaiter;
+        Customer = isCustomer;
     }
-
 }
 
 
