@@ -1,4 +1,4 @@
-class Logic
+class SearchLogic
 {
     // search an item based on users input
     public static void SearchItemStart(string TypeItem)
