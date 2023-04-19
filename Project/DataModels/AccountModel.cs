@@ -35,9 +35,6 @@ public class AccountModel
         Costumer = true;
     }
 
-//lol
-
-
 }
 
 
