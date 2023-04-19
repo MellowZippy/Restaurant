@@ -22,9 +22,9 @@ public class AccountModel
     public bool Waiter { get; set; }
 
     [JsonPropertyName("Costumer")]
-    public bool Costumer { get; set; }
+    public bool Customer { get; set; }
 
-    public AccountModel(int id, string emailAddress, string password, string fullName, bool Admin, bool Waiter, bool Costumer)
+    public AccountModel(int id, string emailAddress, string password, string fullName, bool Admin, bool Waiter, bool Customer)
     {
         Id = id;
         EmailAddress = emailAddress;
@@ -32,7 +32,7 @@ public class AccountModel
         FullName = fullName;
         Admin = false;
         Waiter = false;
-        Costumer = true;
+        Customer = true;
     }
 
 }

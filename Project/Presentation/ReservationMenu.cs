@@ -13,7 +13,7 @@ public static class ReservationMenu
         ReservationModel newReservation = ReservationsLogic.AddReservation(userDate, time, quantityPeople, account.FullName, account.Id, reservationCode);
         Console.WriteLine($"\n{newReservation.ToString()}\n");
         Console.ReadLine();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 
     public static void ShowCalender()
@@ -217,6 +217,6 @@ public static class ReservationMenu
         }
         else Console.WriteLine("You have no reservations");
         Console.ReadLine();
-        UserMenu.LoginMenu();
+        Menu.HandleLogin();
     }
 }
