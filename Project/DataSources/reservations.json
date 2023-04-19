@@ -1,20 +1,3 @@
 [
-  {
-    "id": 1,
-    "date": "2034-02-01T00:00:00",
-    "time": "18:00 - 19:00",
-    "quantityPeople": 5,
-    "fullName": "Test",
-    "accountId": 1,
-    "reservationCode": "7TQRN"
-  },
-  {
-    "id": 2,
-    "date": "2023-05-05T00:00:00",
-    "time": "16:00 - 17:00",
-    "quantityPeople": 5,
-    "fullName": "hello world!",
-    "accountId": 4,
-    "reservationCode": "KBWH3"
-  }
+
 ]

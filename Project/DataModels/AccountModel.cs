@@ -24,17 +24,16 @@ public class AccountModel
     [JsonPropertyName("Costumer")]
     public bool Customer { get; set; }
 
-    public AccountModel(int id, string emailAddress, string password, string fullName, bool Admin, bool Waiter, bool Customer)
+    public AccountModel(int id, string emailAddress, string password, string fullName, bool isAdmin, bool isWaiter, bool isCustomer)
     {
         Id = id;
         EmailAddress = emailAddress;
         Password = password;
         FullName = fullName;
-        Admin = false;
-        Waiter = false;
-        Customer = true;
+        Admin = isAdmin;
+        Waiter = isWaiter;
+        Customer = isCustomer;
     }
-
 }
 
 

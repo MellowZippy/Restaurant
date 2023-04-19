@@ -6,33 +6,6 @@
     "fullName": "Test",
     "Admin": false,
     "Waiter": false,
-    "Costumer": false
-  },
-  {
-    "id": 2,
-    "emailAddress": "jeff",
-    "password": "myName",
-    "fullName": "myNameJeff",
-    "Admin": false,
-    "Waiter": false,
-    "Costumer": false
-  },
-  {
-    "id": 3,
-    "emailAddress": "h",
-    "password": "h",
-    "fullName": "pablo",
-    "Admin": false,
-    "Waiter": false,
-    "Costumer": false
-  },
-  {
-    "id": 4,
-    "emailAddress": "helloworld@gmail.com",
-    "password": "qwerty",
-    "fullName": "hello world!",
-    "Admin": false,
-    "Waiter": false,
-    "Costumer": false
+    "Costumer": true
   }
 ]
