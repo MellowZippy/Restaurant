@@ -60,4 +60,9 @@ class FoodLogic
         _foodList.Remove(foodItem);
     }
 
+    public void EditFoodItem(FoodModel foodItem)
+    {
+        return; 
+    }
+
 }

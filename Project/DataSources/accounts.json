@@ -5,7 +5,8 @@
     "password": "T",
     "fullName": "Test",
     "Admin": false,
-    "Waiter": false
+    "Waiter": false,
+    "Costumer": false
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "password": "myName",
     "fullName": "myNameJeff",
     "Admin": false,
-    "Waiter": false
+    "Waiter": false,
+    "Costumer": false
   },
   {
     "id": 3,
@@ -21,6 +23,16 @@
     "password": "h",
     "fullName": "pablo",
     "Admin": false,
-    "Waiter": false
+    "Waiter": false,
+    "Costumer": false
+  },
+  {
+    "id": 4,
+    "emailAddress": "dan@gmail.com",
+    "password": "dan123",
+    "fullName": "dan the man",
+    "Admin": true,
+    "Waiter": false,
+    "Costumer": false
   }
 ]

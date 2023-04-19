@@ -10,13 +10,6 @@ static class UserMenu
         Console.WriteLine("Enter 4 to cancel your reservation");
         Console.WriteLine("Enter 'back' to go to the home screen");
         Console.WriteLine();
-        Console.WriteLine("Admin commands:");
-        Console.WriteLine("Enter 'A' to search an account");
-        Console.WriteLine("Enter 'B' to see the accounts ordered");
-        Console.WriteLine("Enter 'C' to search a dish");
-        Console.WriteLine("Enter 'D' to see the food ordered");
-        Console.WriteLine("Enter 'E' to search a reservation");
-        Console.WriteLine("Enter 'F' to see the reservations ordered");
         string input = Console.ReadLine() ?? "";
         Console.Clear();
         switch (input.ToUpper())
@@ -25,14 +18,9 @@ static class UserMenu
             case "2": ReservationMenu.SeeReservations(); break;
             case "3": Menu.message = "! not yet implemented feature !"; UserMenu.LoginMenu(); break;
             case "4": Menu.message = "! not yet implemented feature !"; UserMenu.LoginMenu(); break;
-            case "back": Menu.Start(); break;
-            case "A": Logic.SearchItemStart("Accounts"); break;
-            case "B": Logic.OrderByStart("Accounts"); break;
-            case "C": Logic.SearchItemStart("Food"); break;
-            case "D": Logic.OrderByStart("Food"); break;
-            case "E": Logic.SearchItemStart("Reservations"); break;
-            case "F": Logic.OrderByStart("Reservations"); break;
+            case "BACK": Menu.Start(); break;
             default: LoginMenu(); break;
         }
     }
+    
 }
