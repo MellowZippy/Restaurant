@@ -4,9 +4,7 @@ public class WaiterMenu
     {
         Console.Clear();
         Menu.Print();
-        Console.WriteLine(new string('-', 20));
-        Console.WriteLine("Waiter UI:");
-        Console.WriteLine(new string('-', 20));
+        Menu.Header("Waiter UI:");
         Console.WriteLine("Enter 1 to see the menu card");
         Console.WriteLine("Enter 2 to manage the customer's presence");
         Console.WriteLine("Enter 3 to manage the customer's order");

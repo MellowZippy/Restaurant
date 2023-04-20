@@ -9,9 +9,9 @@ public static class Menu
 
     public static void Header(string message)
     {
-        Console.WriteLine(new string('-', 20));
-        Console.WriteLine(message);
-        Console.WriteLine(new string('-', 20));
+        Console.WriteLine("x" + new string('-', message.Length + 2) + "x");
+        Console.WriteLine("| " + message + " |");
+        Console.WriteLine("x" + new string('-', message.Length + 2) + "x");
     }
 
     public static void PressEnter()

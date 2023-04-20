@@ -4,9 +4,7 @@ public static class AdminMenu
     {
         Console.Clear();
         Menu.Print();
-        Console.WriteLine(new string('-', 20));
-        Console.WriteLine("Admin UI:");
-        Console.WriteLine(new string('-', 20));
+        Menu.Header("Admin UI:");
         Console.WriteLine("Enter 1 to see all reservations");
         Console.WriteLine("Enter 2 to see Menu");
         Console.WriteLine("Enter 3 to change the Menu");

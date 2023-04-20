@@ -40,7 +40,7 @@ public static class ReservationMenu
             return null!;
         }
         SeeReservations();
-        Console.WriteLine("Which reservation would you like to choose? Enter their number:");
+        Console.WriteLine("\nWhich reservation would you like to choose? Enter their number:");
         while (true)
         {
             int action = CheckIfInputIsInt();
@@ -257,7 +257,6 @@ public static class ReservationMenu
 
     public static void SeeReservations()
     {
-        Console.Clear();
         Console.WriteLine("Your reservations:");
         List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation().OrderBy(x => x.Date).ToList();
         if (UserReservationsList.Count != 0)
@@ -268,6 +267,5 @@ public static class ReservationMenu
             }
         }
         else Console.WriteLine("You have no reservations");
-        Menu.PressEnter();
     }
 }
