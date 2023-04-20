@@ -55,6 +55,7 @@ class ReservationsLogic
     public static List<ReservationModel> FindAccountReservation()
     {
         List<ReservationModel> reservationsList = new List<ReservationModel>();
+        _reservations = ReservationsAccess.LoadAll();
         foreach (ReservationModel reservation in _reservations)
         {
             if (reservation.AccountId == AccountsLogic.CurrentAccount!.Id) reservationsList.Add(reservation);

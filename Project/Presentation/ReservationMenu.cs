@@ -40,7 +40,7 @@ public static class ReservationMenu
             return null!;
         }
         SeeReservations();
-        Console.WriteLine("Which reservation would you like to change? Enter their number:");
+        Console.WriteLine("Which reservation would you like to choose? Enter their number:");
         while (true)
         {
             int action = CheckIfInputIsInt();
@@ -49,6 +49,21 @@ public static class ReservationMenu
                 if (action == i + 1) return UserReservationsList[i];
             }
             Console.WriteLine("Invalid input. Choose a valid number.");
+        }
+    }
+
+    public static void CancelReservation()
+    {
+        Console.Clear();
+        Menu.Print();
+        Menu.Header("Cancel your reservation:");
+        ReservationModel toCancelReservation = ChooseReservation();
+        if (toCancelReservation == null) Menu.HandleLogin();
+        else
+        {
+            ReservationsLogic.RemoveReservation(toCancelReservation);
+            Menu.message = "You have canceled your reservation";
+            Menu.HandleLogin();
         }
     }
 
@@ -244,7 +259,7 @@ public static class ReservationMenu
     {
         Console.Clear();
         Console.WriteLine("Your reservations:");
-        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation();
+        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation().OrderBy(x => x.Date).ToList();
         if (UserReservationsList.Count != 0)
         {
             for (int i = 0; i < UserReservationsList.Count; i++)

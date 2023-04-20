@@ -18,8 +18,8 @@ static class UserMenu
         {
             case "1": ReservationMenu.MakeReservation(); break;
             case "2": ReservationMenu.SeeReservations(); Menu.HandleLogin(); break;
-            case "3": ReservationMenu.ChangeReservation(); break; // NOT YET DONE
-            case "4": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
+            case "3": ReservationMenu.ChangeReservation(); break; // WORKS, BUT NOT YET DONE
+            case "4": ReservationMenu.CancelReservation(); break; // WORKS, BUT NOT YET DONE
             case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
             default: UserMenu.UserUI(); break;
         }

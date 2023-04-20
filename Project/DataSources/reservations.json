@@ -9,12 +9,21 @@
     "reservationCode": "JV06D"
   },
   {
-    "id": 2,
-    "date": "2023-10-01T00:00:00",
-    "time": "21:00 - 22:00",
-    "quantityPeople": 20,
+    "id": 3,
+    "date": "2023-07-07T00:00:00",
+    "time": "16:00 - 17:00",
+    "quantityPeople": 1,
     "fullName": "Customer UI",
     "accountId": 1,
-    "reservationCode": "07MVH"
+    "reservationCode": "IX03I"
+  },
+  {
+    "id": 3,
+    "date": "2023-11-01T00:00:00",
+    "time": "16:00 - 17:00",
+    "quantityPeople": 1,
+    "fullName": "Customer UI",
+    "accountId": 1,
+    "reservationCode": "Y4917"
   }
 ]

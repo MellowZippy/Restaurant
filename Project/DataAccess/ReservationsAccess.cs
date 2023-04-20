@@ -15,7 +15,7 @@ static class ReservationsAccess
     public static void WriteAll(List<ReservationModel> reservations)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(reservations, options);
+        string json = JsonSerializer.Serialize(reservations.OrderBy(x => x.Id).ToList(), options);
         File.WriteAllText(path, json);
     }
 
