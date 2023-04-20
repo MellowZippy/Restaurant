@@ -1,6 +1,6 @@
-static class UserMenu
+static class CustomerMenu
 {
-    public static void UserUI()
+    public static void CustomerUI()
     {
         Console.Clear();
         Menu.Print();
@@ -19,7 +19,7 @@ static class UserMenu
             case "3": ReservationMenu.ChangeReservation(); break; // WORKS, BUT NOT YET DONE
             case "4": ReservationMenu.CancelReservation(); break; // WORKS, BUT NOT YET DONE
             case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
-            default: UserMenu.UserUI(); break;
+            default: CustomerMenu.CustomerUI(); break;
         }
         Console.WriteLine("Invalid input");
         AdminMenu.AdminUI();
