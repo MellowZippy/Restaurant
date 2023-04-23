@@ -61,6 +61,7 @@ class SearchLogic
         for (int i = 1; i < searchOptions.Count; i++) { menuMessage += $"{i}, "; }
         menuMessage = menuMessage.Remove(menuMessage.Length - 2);
         menuMessage += searchOptions.Count.ToString();
+        Menu.message = "Search an account:";
         string searchMethod = SearchOptionsMenu(searchOptions);
         while (searchMethod == "invalid") { Menu.message = $"Your input was invalid; choose between {menuMessage}"; searchMethod = SearchOptionsMenu(searchOptions); }
         Console.WriteLine($"Enter the {searchMethod} you want to search");
@@ -116,6 +117,7 @@ class SearchLogic
         for (int i = 1; i < orderOptions.Count; i++) { menuMessage += $"{i}, "; }
         menuMessage = menuMessage.Remove(menuMessage.Length - 2);
         menuMessage += orderOptions.Count.ToString();
+        Menu.message = "Order accounts by:";
         string orderMethod = OrderByMenu(orderOptions);
         while (orderMethod == "invalid") { Menu.message = $"Your input was invalid; choose between {menuMessage}"; orderMethod = OrderByMenu(orderOptions); }
         Console.WriteLine($"| {"id".PadLeft(4, ' ')} | {"Full name".PadLeft(30, ' ')} | {"Email Address".PadLeft(30, ' ')} | {"Password".PadLeft(20, ' ')} |");
@@ -154,6 +156,7 @@ class SearchLogic
         for (int i = 1; i < searchOptions.Count; i++) { menuMessage += $"{i}, "; }
         menuMessage = menuMessage.Remove(menuMessage.Length - 2);
         menuMessage += searchOptions.Count.ToString();
+        Menu.message = "Search a dish:";
         string searchMethod = SearchOptionsMenu(searchOptions);
         while (searchMethod == "invalid") { Menu.message = $"Your input was invalid; choose between {menuMessage}"; searchMethod = SearchOptionsMenu(searchOptions); }
         Console.WriteLine($"Enter the {searchMethod} you want to search");
@@ -197,6 +200,7 @@ class SearchLogic
         for (int i = 1; i < orderOptions.Count; i++) { menuMessage += $"{i}, "; }
         menuMessage = menuMessage.Remove(menuMessage.Length - 2);
         menuMessage += orderOptions.Count.ToString();
+        Menu.message = "Order food by:";
         string orderMethod = OrderByMenu(orderOptions);
         while (orderMethod == "invalid") { Menu.message = $"Your input was invalid; choose between {menuMessage}"; orderMethod = OrderByMenu(orderOptions); }
         Console.WriteLine($"| {"id".PadLeft(4, ' ')} | {"Name".PadLeft(30, ' ')} | {"Price".PadLeft(30, ' ')} |");
@@ -244,7 +248,8 @@ class SearchLogic
         for (int i = 1; i < searchOptions.Count; i++) { menuMessage += $"{i}, "; }
         menuMessage = menuMessage.Remove(menuMessage.Length - 2);
         menuMessage += searchOptions.Count.ToString();
-        string searchMethod = SearchOptionsMenu(searchOptions);
+        Menu.message = "Search a reservation:"
+; string searchMethod = SearchOptionsMenu(searchOptions);
         while (searchMethod == "invalid") { Menu.message = $"Your input was invalid; choose between {menuMessage}"; searchMethod = SearchOptionsMenu(searchOptions); }
         Console.WriteLine($"Enter the {searchMethod} you want to search");
         string userSearch = (Console.ReadLine() ?? "").TrimEnd();
@@ -309,6 +314,7 @@ class SearchLogic
         for (int i = 1; i < orderOptions.Count; i++) { menuMessage += $"{i}, "; }
         menuMessage = menuMessage.Remove(menuMessage.Length - 2);
         menuMessage += orderOptions.Count.ToString();
+        Menu.message = "Order reservations by:";
         string orderMethod = OrderByMenu(orderOptions);
         while (orderMethod == "invalid") { Menu.message = $"Your input was invalid; choose between {menuMessage}"; orderMethod = OrderByMenu(orderOptions); }
         Console.WriteLine($"| {"id".PadLeft(4, ' ')} | {"Full name".PadLeft(30, ' ')} | {"Date".PadLeft(30, ' ')} | {"Quantity people".PadLeft(20, ' ')} |");

@@ -36,16 +36,26 @@ class ReservationsLogic
     public static ReservationModel AddReservation(DateTime date, string time, int quantityPeople, string fullName, int accountId, string reservationCode)
     {
         List<ReservationModel> reservationsList = ReservationsAccess.LoadAll();
-        int nextId = reservationsList.Count + 1;
+        int nextId = reservationsList[reservationsList.Count - 1].Id + 1;
         ReservationModel res = new ReservationModel(nextId, date, time, quantityPeople, fullName, accountId, reservationCode);
         reservationsList.Add(res);
         ReservationsAccess.WriteAll(reservationsList);
         return res;
     }
 
+    public static void RemoveReservation(ReservationModel reservation)
+    {
+        // NOT YET DONE
+        List<ReservationModel> reservationsList = ReservationsAccess.LoadAll();
+        int index = reservationsList.FindIndex(x => x.Id == reservation.Id);
+        reservationsList.RemoveAt(index);
+        ReservationsAccess.WriteAll(reservationsList);
+    }
+
     public static List<ReservationModel> FindAccountReservation()
     {
         List<ReservationModel> reservationsList = new List<ReservationModel>();
+        _reservations = ReservationsAccess.LoadAll();
         foreach (ReservationModel reservation in _reservations)
         {
             if (reservation.AccountId == AccountsLogic.CurrentAccount!.Id) reservationsList.Add(reservation);

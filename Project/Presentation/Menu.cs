@@ -7,6 +7,13 @@ public static class Menu
         if (message != "") Console.WriteLine(message + "\n"); message = "";
     }
 
+    public static void Header(string message)
+    {
+        Console.WriteLine(new string('-', 20));
+        Console.WriteLine(message);
+        Console.WriteLine(new string('-', 20));
+    }
+
     public static void PressEnter()
     {
         Console.WriteLine("Press 'Enter' to continue");
@@ -15,7 +22,8 @@ public static class Menu
 
     public static void HandleLogin()
     {
-        if (AccountsLogic.CurrentAccount.IsCustomer == true) UserMenu.UserUI();
+        if (AccountsLogic.CurrentAccount == null) throw new NullReferenceException("Error. Current account is null.");
+        else if (AccountsLogic.CurrentAccount.IsCustomer == true) UserMenu.UserUI();
         else if (AccountsLogic.CurrentAccount.IsAdmin == true) AdminMenu.AdminUI();
         else if (AccountsLogic.CurrentAccount.IsWaiter == true) WaiterMenu.WaiterUI();
         else

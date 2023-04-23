@@ -10,14 +10,13 @@ static class UserLogin
         Console.Clear();
         Console.WriteLine("Welcome to the login page\n");
         Console.WriteLine("Please enter your email address");
-        string? email = Console.ReadLine();
+        string? email = (Console.ReadLine() ?? "").TrimEnd();
         Console.WriteLine("Please enter your password");
-        string? password = Console.ReadLine();
+        string? password = (Console.ReadLine() ?? "").TrimEnd();
         Console.ResetColor();
         AccountModel acc = accountsLogic.CheckLogin(email!, password!);
         if (acc != null)
         {
-            Menu.message = $"Welcome back {acc.FullName}\nYou are logged in.\n";
             Menu.HandleLogin();
         }
         else
