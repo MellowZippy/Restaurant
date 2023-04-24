@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "date": "2023-09-02T00:00:00",
+    "time": "21:00 - 22:00",
+    "quantityPeople": 9,
+    "fullName": "Customer UI",
+    "accountId": 1,
+    "reservationCode": "JV06D"
+  },
+  {
+    "id": 3,
+    "date": "2023-04-30T00:00:00",
+    "time": "16:00 - 17:00",
+    "quantityPeople": 1,
+    "fullName": "Customer UI",
+    "accountId": 1,
+    "reservationCode": "UJHIE"
+  },
+  {
+    "id": 4,
+    "date": "2023-04-23T00:00:00",
+    "time": "16:00 - 17:00",
+    "quantityPeople": 1,
+    "fullName": "Customer UI",
+    "accountId": 1,
+    "reservationCode": "V7NA8"
+  },
+  {
+    "id": 5,
+    "date": "2023-04-23T00:00:00",
+    "time": "17:00 - 18:00",
+    "quantityPeople": 2,
+    "fullName": "Customer UI",
+    "accountId": 1,
+    "reservationCode": "07YXE"
+  }
+]

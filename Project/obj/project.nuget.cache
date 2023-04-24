@@ -1,10 +1,18 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "XmRSvDiZsFO3UCftBppy++0q+LeyqrL+B6sVW/niuPEmOGH6DtEEjbcHpZFbvLKRrdbq3q95NBQkvrBXo2YqpA==",
   "success": true,
   "projectFilePath": "D:\\Development\\CS\\Project_B\\Connected Restaurant\\Restaurant\\Project\\Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yingy\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+=======
+  "dgSpecHash": "xHvk0hxRQomcdN8B1UvYI9hbQfFusBdjsNjXpdyM5hHA89RfOKiEWRxs/R0x35CXVu9vk6H8JILyf0KnrUkpnA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Basic\\OneDrive\\Desktop\\Connected Restaurant\\Restaurant\\Project\\Project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Basic\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+>>>>>>> d6b9ac732541c044a88d87306a328fa7d32ae060
   ],
   "logs": []
 }

@@ -1,6 +1,7 @@
 class FoodLogic
 {
     private List<FoodModel> _foodList;
+    public int foodCount { get { return _foodList.Count(); } } 
 
     public FoodLogic()
     {
@@ -58,6 +59,11 @@ class FoodLogic
     {
         FoodModel foodItem = GetById(id);
         _foodList.Remove(foodItem);
+    }
+
+    public void EditFoodItem(FoodModel foodItem)
+    {
+        return; 
     }
 
 }

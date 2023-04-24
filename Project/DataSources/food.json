@@ -1,16 +1,1 @@
-[
-    {
-		"id": 1,
-		"name": "Burrito",
-		"price": 18.12,
-		"description": "it is burrito aha",
-		"category": "Soup"
-	},
-	{
-		"id": 2,
-		"name": "Taco",
-		"price": 12,
-		"description": "It is not burrito, it is TACO!",
-		"category": "Mexican food"
-	}
-]
+[{"Id":1,"Name":"GroenteSoep","Price":23.0,"Description":"Delicious","Category":"Soup"}]

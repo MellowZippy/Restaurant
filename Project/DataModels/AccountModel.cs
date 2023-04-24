@@ -15,22 +15,25 @@ public class AccountModel
     [JsonPropertyName("fullName")]
     public string FullName { get; set; }
 
-    [JsonPropertyName("Admin")]
-    public bool Admin { get; set; }
+    [JsonPropertyName("isAdmin")]
+    public bool IsAdmin { get; set; }
 
-    [JsonPropertyName("Waiter")]
-    public bool Waiter { get; set; }
+    [JsonPropertyName("isWaiter")]
+    public bool IsWaiter { get; set; }
 
-    public AccountModel(int id, string emailAddress, string password, string fullName, bool Admin, bool Waiter)
+    [JsonPropertyName("isCustomer")]
+    public bool IsCustomer { get; set; }
+
+    public AccountModel(int id, string emailAddress, string password, string fullName, bool isAdmin, bool isWaiter, bool isCustomer)
     {
         Id = id;
         EmailAddress = emailAddress;
         Password = password;
         FullName = fullName;
-        Admin = false;
-        Waiter = false;
+        IsAdmin = isAdmin;
+        IsWaiter = isWaiter;
+        IsCustomer = isCustomer;
     }
-
 }
 
 

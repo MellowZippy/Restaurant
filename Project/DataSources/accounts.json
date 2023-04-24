@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "id": 0,
     "emailAddress": null,
     "password": null,
@@ -23,4 +24,32 @@
     "Admin": false,
     "Waiter": false
   },
+=======
+    "id": 1,
+    "emailAddress": "Customer",
+    "password": "T",
+    "fullName": "Customer UI",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
+  },
+  {
+    "id": 2,
+    "emailAddress": "Waiter",
+    "password": "T",
+    "fullName": "Waiter UI",
+    "isAdmin": false,
+    "isWaiter": true,
+    "isCustomer": false
+  },
+  {
+    "id": 3,
+    "emailAddress": "Admin",
+    "password": "T",
+    "fullName": "Admin UI",
+    "isAdmin": true,
+    "isWaiter": false,
+    "isCustomer": false
+  }
+>>>>>>> d6b9ac732541c044a88d87306a328fa7d32ae060
 ]
