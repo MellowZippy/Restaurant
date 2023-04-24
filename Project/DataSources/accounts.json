@@ -1,5 +1,30 @@
 [
   {
+<<<<<<< HEAD
+    "id": 0,
+    "emailAddress": null,
+    "password": null,
+    "fullName": null,
+    "Admin": false,
+    "Waiter": false
+  },
+  {
+    "id": 0,
+    "emailAddress": null,
+    "password": null,
+    "fullName": null,
+    "Admin": false,
+    "Waiter": false
+  },
+  {
+    "id": 0,
+    "emailAddress": null,
+    "password": null,
+    "fullName": null,
+    "Admin": false,
+    "Waiter": false
+  },
+=======
     "id": 1,
     "emailAddress": "Customer",
     "password": "T",
@@ -26,4 +51,5 @@
     "isWaiter": false,
     "isCustomer": false
   }
+>>>>>>> d6b9ac732541c044a88d87306a328fa7d32ae060
 ]

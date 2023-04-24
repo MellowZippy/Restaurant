@@ -6,5 +6,12 @@
   "expectedPackageFiles": [
     "C:\\Users\\pablo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\pablo\\OneDrive\\Documents\\Developments\\C# Folders\\Jaar 1 S2\\Connected Project B\\Restaurant\\Project\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
