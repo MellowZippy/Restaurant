@@ -17,7 +17,7 @@ public class WaiterMenu
         switch (input.ToUpper())
         {
             case "1": MenuCard.ShowMenuCard(); break;
-            case "2": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
+            case "2": WaiterCommands.TodaysReservations(); Menu.HandleLogin(); break;
             case "3": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
             case "4": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
             case "5": SearchLogic.SearchItemStart("Reservations"); break;

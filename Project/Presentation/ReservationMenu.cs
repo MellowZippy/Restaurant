@@ -137,7 +137,7 @@ public static class ReservationMenu
                     try
                     {
                         userDate = new DateTime(inputYear, inputMonth, inputDay);
-                        if (DateTime.Compare(DateTime.Now, userDate) < 0) isCorrect = true;
+                        if (DateTime.Compare(DateTime.Now.Date, userDate.Date) <= 0) isCorrect = true;
                         else Console.WriteLine("\nInvalid input, this date has already passed. Try again.\n");
                     }
                     catch

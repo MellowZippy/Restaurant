@@ -21,33 +21,40 @@ static class ReservationsAccess
 
     public static List<ReservationModel> AscIDMyJson()
     {
-        string json = File.ReadAllText(ReservationsAccess.path);
-        var listOb = JsonSerializer.Deserialize<List<ReservationModel>>(json);
+        var listOb = LoadAll();
         var descListOb = listOb!.OrderBy(x => x.Id).ToList();
         return descListOb;
     }
 
     public static List<ReservationModel> AscNameMyJson()
     {
-        string json = File.ReadAllText(ReservationsAccess.path);
-        var listOb = JsonSerializer.Deserialize<List<ReservationModel>>(json);
+        var listOb = LoadAll();
         var descListOb = listOb!.OrderBy(x => x.FullName).ToList();
         return descListOb;
     }
 
     public static List<ReservationModel> AscDateMyJson()
     {
-        string json = File.ReadAllText(ReservationsAccess.path);
-        var listOb = JsonSerializer.Deserialize<List<ReservationModel>>(json);
+        var listOb = LoadAll();
         var descListOb = listOb!.OrderBy(x => x.Date).ToList();
         return descListOb;
     }
 
     public static List<ReservationModel> AscPeopleMyJson()
     {
-        string json = File.ReadAllText(ReservationsAccess.path);
-        var listOb = JsonSerializer.Deserialize<List<ReservationModel>>(json);
+        var listOb = LoadAll();
         var descListOb = listOb!.OrderBy(x => x.QuantityPeople).ToList();
+        return descListOb;
+    }
+
+    public static List<ReservationModel> TodaysReservations()
+    {
+        var listOb = LoadAll();
+        List<ReservationModel> descListOb = new List<ReservationModel>();
+        foreach (ReservationModel reservation in listOb)
+        {
+            if (reservation.Date.Day == DateTime.Now.Day) descListOb.Add(reservation);
+        }
         return descListOb;
     }
 }
