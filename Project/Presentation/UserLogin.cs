@@ -27,6 +27,46 @@ static class UserLogin
         }
     }
 
+        public static void ChangePassword()
+    {
+        Console.Clear();
+        System.Console.WriteLine("To change your password you have to login first.");
+        System.Console.WriteLine("Please enter your email adress:");
+        string? email = Console.ReadLine();
+        //System.Console.WriteLine("\n");
+        Console.WriteLine("Please enter your password");
+        string? password = Console.ReadLine();
+        System.Console.WriteLine("\n");
+        AccountModel acc = accountsLogic.CheckLogin(email!, password!);
+        
+        if (acc != null)
+        {
+            Console.Clear();
+            System.Console.WriteLine("You are succesfully logged in.\nPlease enter your NEW password:");
+            string? newPassword = Console.ReadLine();
+            acc.Password = newPassword!;
+            string json = JsonConvert.SerializeObject(acc, Formatting.Indented);
+            List<AccountModel> accounts = AccountsAccess.LoadAll();
+            int index = accounts.FindIndex(a => a.Id == acc.Id);
+            accounts[index] = acc;
+            AccountsAccess.WriteAll(accounts);
+
+            System.Console.WriteLine($"\nYour password is succesfully changed to: {acc.Password}\nLogin again with your new password.\n");
+            System.Console.WriteLine("Press enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+            UserLogin.Login();
+        }
+
+        else
+        {
+            System.Console.WriteLine("The email and/or password dont match\nPlease try again...");
+            System.Console.WriteLine("Press enter to go back");
+            Console.ReadLine();
+            UserLogin.ChangePassword();
+        }
+    }
+
     public static void CreateAccount()
     {
         Console.Clear();
