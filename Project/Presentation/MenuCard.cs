@@ -22,11 +22,50 @@ static class MenuCard
 
     }
 
-    public static void ChangeMenuCard()
+    public static void DeleteFromMenuCard()
     {
-        Console.WriteLine("What item do you want to change?");
+        Console.WriteLine("What item do you want to remove?");
         Console.Write("ID: ");
         int choiceUser = ReservationMenu.CheckIfInputIsInt();
+
+        FoodLogic foodLogic = new FoodLogic();
+
+        FoodModel ChangingFoodItem = foodLogic.GetById(choiceUser);
+        foodLogic.DeleteById(choiceUser);
+    }
+
+    public static void DeleteAllItemsFromMenuCard()
+    {
+        FoodLogic foodLogic = new FoodLogic();
+        for (int i = 0; i <= foodLogic.foodCount; i++)
+        {
+            foodLogic.DeleteById(i);
+        }
+    }
+
+    public static void ShowMenuOptions()
+    {
+        Console.WriteLine("What do you want to do with the menu?");
+        Console.WriteLine("[D] Delete an item.");
+        Console.WriteLine("[C] Change an item.");
+        Console.WriteLine("[R] Remove all items.");
+
+        string UserChoice = Console.ReadLine() ?? "";
+
+        switch (UserChoice.ToUpper())
+        {
+            case "D":
+                DeleteFromMenuCard();
+                break;
+            case "R":
+                DeleteAllItemsFromMenuCard();
+                break;
+                
+        }
+
+
+
+        
     }
 }
 
