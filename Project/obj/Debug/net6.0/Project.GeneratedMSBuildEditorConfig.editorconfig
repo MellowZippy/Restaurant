@@ -8,8 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Project
-<<<<<<< HEAD
-build_property.ProjectDir = C:\Users\pablo\OneDrive\Documents\Developments\C# Folders\Jaar 1 S2\Connected Project B\Restaurant\Project\
-=======
-build_property.ProjectDir = C:\Users\Basic\OneDrive\Desktop\Connected Restaurant\Restaurant\Project\
->>>>>>> 219d59d2072a719eb8ba697a2b77422372471185
+build_property.ProjectDir = c:\Users\pablo\OneDrive\Documents\Developments\C# Folders\Jaar 1 S2\Connected Project B\Restaurant\Project\
