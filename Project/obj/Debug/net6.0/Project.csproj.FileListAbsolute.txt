@@ -79,3 +79,20 @@ C:\Users\pablo\OneDrive\Documents\Developments\C# Folders\Jaar 1 S2\Connected Pr
 C:\Users\pablo\OneDrive\Documents\Developments\C# Folders\Jaar 1 S2\Connected Project B\Restaurant\Project\obj\Debug\net6.0\Project.pdb
 C:\Users\pablo\OneDrive\Documents\Developments\C# Folders\Jaar 1 S2\Connected Project B\Restaurant\Project\obj\Debug\net6.0\Project.genruntimeconfig.cache
 C:\Users\pablo\OneDrive\Documents\Developments\C# Folders\Jaar 1 S2\Connected Project B\Restaurant\Project\obj\Debug\net6.0\ref\Project.dll
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\bin\Debug\net6.0\Project.exe
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\bin\Debug\net6.0\Project.deps.json
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\bin\Debug\net6.0\Project.runtimeconfig.json
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\bin\Debug\net6.0\Project.dll
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\bin\Debug\net6.0\Project.pdb
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.csproj.AssemblyReference.cache
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.GeneratedMSBuildEditorConfig.editorconfig
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.AssemblyInfoInputs.cache
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.AssemblyInfo.cs
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.csproj.CoreCompileInputs.cache
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.csproj.CopyComplete
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.dll
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\refint\Project.dll
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.pdb
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\Project.genruntimeconfig.cache
+D:\Development\CS\Project_B\Connected Restaurant\Restaurant\Project\obj\Debug\net6.0\ref\Project.dll

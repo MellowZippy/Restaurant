@@ -55,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pablo\\.nuget\\packages\\": {}
+    "C:\\Users\\yingy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pablo\\OneDrive\\Documents\\Developments\\C# Folders\\Jaar 1 S2\\Connected Project B\\Restaurant\\Project\\Project.csproj",
+      "projectUniqueName": "D:\\Development\\CS\\Project_B\\Connected Restaurant\\Restaurant\\Project\\Project.csproj",
       "projectName": "Project",
-      "projectPath": "C:\\Users\\pablo\\OneDrive\\Documents\\Developments\\C# Folders\\Jaar 1 S2\\Connected Project B\\Restaurant\\Project\\Project.csproj",
-      "packagesPath": "C:\\Users\\pablo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pablo\\OneDrive\\Documents\\Developments\\C# Folders\\Jaar 1 S2\\Connected Project B\\Restaurant\\Project\\obj\\",
+      "projectPath": "D:\\Development\\CS\\Project_B\\Connected Restaurant\\Restaurant\\Project\\Project.csproj",
+      "packagesPath": "C:\\Users\\yingy\\.nuget\\packages\\",
+      "outputPath": "D:\\Development\\CS\\Project_B\\Connected Restaurant\\Restaurant\\Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\pablo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\yingy\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -112,7 +112,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }
