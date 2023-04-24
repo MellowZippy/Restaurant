@@ -31,6 +31,9 @@ public static class AdminMenu
             case "D": SearchLogic.OrderByStart("Food"); break;
             case "E": SearchLogic.SearchItemStart("Reservations"); break;
             case "F": SearchLogic.OrderByStart("Reservations"); break;
+            case "1": break;
+            case "2": MenuCard.ShowMenuCard(); break;
+            case "3": MenuCard.ShowMenuOptions(); break;
             case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
             default: AdminMenu.AdminUI(); break;
         }
@@ -49,7 +52,7 @@ public static class AdminMenu
         }
         else if (input == "3")
         {
-            //Method to change Menu
+            MenuCard.ShowMenuOptions();
         }
         else if (input == "4")
         {

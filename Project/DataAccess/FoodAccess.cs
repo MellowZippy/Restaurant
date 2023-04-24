@@ -7,7 +7,16 @@ static class FoodAccess
     public static List<FoodModel> LoadAll()
     {
         string json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<List<FoodModel>>(json)!;
+        List<FoodModel> foodList = JsonSerializer.Deserialize<List<FoodModel>>(json)!;
+        if (foodList != null)
+        {
+            return foodList;
+        }
+        else
+        {
+            Console.WriteLine("Error: failed to deserialize JSON to List<FoodModel>");
+            return new List<FoodModel>();
+        }
     }
 
     public static void WriteAll(List<FoodModel> foodList)
