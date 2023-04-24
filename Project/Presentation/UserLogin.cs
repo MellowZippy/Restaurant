@@ -1,9 +1,6 @@
 using Newtonsoft.Json;
 static class UserLogin
 {
-    static private AccountsLogic accountsLogic = new AccountsLogic();
-    // static private string filePath = "DataSources/accounts.json";
-
     public static void Login()
     {
         // doc: this is where all the users can login, if account is found, they are send to their login menu screen, else they are send back to the home screen with an error message
@@ -14,7 +11,7 @@ static class UserLogin
         Console.WriteLine("Please enter your password");
         string? password = (Console.ReadLine() ?? "").TrimEnd();
         Console.ResetColor();
-        AccountModel acc = accountsLogic.CheckLogin(email!, password!);
+        AccountModel acc = AccountsLogic.CheckLogin(email!, password!);
         if (acc != null)
         {
             Menu.HandleLogin();
@@ -26,43 +23,26 @@ static class UserLogin
         }
     }
 
-        public static void ChangePassword()
+    public static void ChangePassword()
     {
         Console.Clear();
-        System.Console.WriteLine("To change your password you have to login first.");
-        System.Console.WriteLine("Please enter your email adress:");
-        string? email = Console.ReadLine();
-        //System.Console.WriteLine("\n");
-        Console.WriteLine("Please enter your password");
-        string? password = Console.ReadLine();
-        System.Console.WriteLine("\n");
-        AccountModel acc = accountsLogic.CheckLogin(email!, password!);
-        
-        if (acc != null)
+        Menu.Print();
+        AccountModel acc = AccountsLogic.CurrentAccount!;
+        Console.WriteLine("Please enter your CURRENT password");
+        string password = Console.ReadLine() ?? "";
+        if (acc.Password != password) { Menu.message = "Wrong password. Try again."; ChangePassword(); }
+        else
         {
-            Console.Clear();
-            System.Console.WriteLine("You are succesfully logged in.\nPlease enter your NEW password:");
-            string? newPassword = Console.ReadLine();
+            Console.WriteLine("Please enter your NEW password:");
+            string newPassword = Console.ReadLine() ?? "";
             acc.Password = newPassword!;
             string json = JsonConvert.SerializeObject(acc, Formatting.Indented);
             List<AccountModel> accounts = AccountsAccess.LoadAll();
             int index = accounts.FindIndex(a => a.Id == acc.Id);
             accounts[index] = acc;
             AccountsAccess.WriteAll(accounts);
-
-            System.Console.WriteLine($"\nYour password is succesfully changed to: {acc.Password}\nLogin again with your new password.\n");
-            System.Console.WriteLine("Press enter to continue");
-            Console.ReadLine();
-            Console.Clear();
-            UserLogin.Login();
-        }
-
-        else
-        {
-            System.Console.WriteLine("The email and/or password dont match\nPlease try again...");
-            System.Console.WriteLine("Press enter to go back");
-            Console.ReadLine();
-            UserLogin.ChangePassword();
+            Menu.message = $"\nYour password is succesfully changed to: {acc.Password}";
+            Menu.HandleLogin();
         }
     }
 

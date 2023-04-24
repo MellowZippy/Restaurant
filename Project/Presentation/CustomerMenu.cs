@@ -9,6 +9,7 @@ static class CustomerMenu
         Console.WriteLine("Enter 2 to see your reservations");
         Console.WriteLine("Enter 3 to change your reservation");
         Console.WriteLine("Enter 4 to cancel your reservation");
+        Console.WriteLine("Enter 5 to change your password");
         Console.WriteLine("Enter 'back' to go to the home screen");
         string input = Console.ReadLine() ?? "";
         Console.Clear();
@@ -18,6 +19,7 @@ static class CustomerMenu
             case "2": ReservationMenu.SeeReservations(); Menu.PressEnter(); Menu.HandleLogin(); break;
             case "3": ReservationMenu.ChangeReservation(); break; // WORKS, BUT NOT YET DONE
             case "4": ReservationMenu.CancelReservation(); break; // WORKS, BUT NOT YET DONE
+            case "5": UserLogin.ChangePassword(); break;
             case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
             default: CustomerMenu.CustomerUI(); break;
         }
