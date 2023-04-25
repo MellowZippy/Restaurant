@@ -9,10 +9,13 @@ public static class ReservationMenu
         string time = TimeTable(16, 22);
         int quantityPeople = HowManyPeople();
         string reservationCode = ConfirmReservation();
+        if (reservationCode == "")
+        {
+            Menu.HandleLogin();
+            return;
+        }
         AccountModel account = AccountsLogic.CurrentAccount!;
         ReservationModel newReservation = ReservationsLogic.AddReservation(userDate, time, quantityPeople, account.FullName, account.Id, reservationCode);
-        Console.WriteLine($"\n{newReservation.ToString()}\n");
-        Console.ReadLine();
         Menu.HandleLogin();
     }
 

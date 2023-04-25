@@ -7,7 +7,7 @@ static class MenuCard
     public static void ShowMenuCard()
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("EL MENU".PadLeft(290, ' '));
+        Console.WriteLine("THE MENU".PadLeft(260, ' '));
         Console.WriteLine();
         Console.ForegroundColor = ConsoleColor.White;
 
@@ -22,7 +22,7 @@ static class MenuCard
         Console.ForegroundColor = ConsoleColor.White;
         Menu.PressEnter();
         if (AccountsLogic.CurrentAccount != null) Menu.HandleLogin();
-
+        else ForeGround.ForeGroundStartScreen();
     }
 
     public static void DeleteFromMenuCard()
@@ -37,7 +37,7 @@ static class MenuCard
     public static void DeleteItemFromMenu(int id)
     {
         List<FoodModel> objects = JsonConvert.DeserializeObject<List<FoodModel>>(File.ReadAllText("DataSources/food.json"))!;
-    
+
         FoodModel objectToRemove = objects.Find(o => o.Id == id)!;
         if (objectToRemove != null)
         {
@@ -62,7 +62,7 @@ static class MenuCard
         Console.WriteLine("What will be the price of the dish?");
         int DishPrice = ReservationMenu.CheckIfInputIsInt();
         Console.WriteLine("How will the food be described?");
-        string DishDescription = Console.ReadLine() ?? ""; 
+        string DishDescription = Console.ReadLine() ?? "";
         Console.WriteLine("What category of food does this dish belong to?");
         string DishCategory = Console.ReadLine() ?? "";
 
@@ -71,7 +71,7 @@ static class MenuCard
         FoodModel foodModel = new FoodModel(id, DishName, DishPrice, DishDescription, DishCategory);
 
         _foodLogic.UpdateList(foodModel);
-        
+
     }
 
     public static void ShowMenuOptions()
@@ -92,15 +92,15 @@ static class MenuCard
             case "R":
                 DeleteAllItemsFromMenuCard();
                 break;
-            case "A": 
+            case "A":
                 AddItemToMenu();
                 break;
-                
+
         }
 
 
 
-        
+
     }
 }
 
