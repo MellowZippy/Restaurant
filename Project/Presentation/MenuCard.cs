@@ -7,7 +7,7 @@ public static class MenuCard
     public static void ShowMenuCard()
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("EL MENU".PadLeft(290, ' '));
+        Console.WriteLine("THE MENU".PadLeft(260, ' '));
         Console.WriteLine();
         Console.ForegroundColor = ConsoleColor.White;
 
@@ -44,6 +44,7 @@ public static class MenuCard
     public static void DeleteItemFromMenu(int id)
     {
         List<FoodModel> objects = JsonConvert.DeserializeObject<List<FoodModel>>(File.ReadAllText("DataSources/food.json"))!;
+    
         FoodModel objectToRemove = objects.Find(o => o.Id == id)!;
 
         if (objectToRemove != null)
@@ -81,7 +82,7 @@ public static class MenuCard
         Console.WriteLine("What will be the price of the dish?");
         int DishPrice = ReservationMenu.CheckIfInputIsInt();
         Console.WriteLine("How will the food be described?");
-        string DishDescription = Console.ReadLine() ?? ""; 
+        string DishDescription = Console.ReadLine() ?? "";
         Console.WriteLine("What category of food does this dish belong to?");
         string DishCategory = Console.ReadLine() ?? "";
 
@@ -113,7 +114,7 @@ public static class MenuCard
                 DeleteAllItemsFromMenuCard();
 
                 break;
-            case "A": 
+            case "A":
                 AddItemToMenu();
                 break;
             case "C":
@@ -132,7 +133,7 @@ public static class MenuCard
 
 
 
-        
+
     }
 }
 

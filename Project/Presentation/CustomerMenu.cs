@@ -20,7 +20,7 @@ static class CustomerMenu
             case "3": ReservationMenu.ChangeReservation(); break; // WORKS, BUT NOT YET DONE
             case "4": ReservationMenu.CancelReservation(); break; // WORKS, BUT NOT YET DONE
             case "5": UserLogin.ChangePassword(); break;
-            case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
+            case "BACK": AccountsLogic.SetCurrentAccount(null!); ForeGround.ForeGroundStartScreen(); break;
             default: CustomerMenu.CustomerUI(); break;
         }
         Console.WriteLine("Invalid input");

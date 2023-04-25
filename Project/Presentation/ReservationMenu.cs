@@ -9,10 +9,13 @@ public static class ReservationMenu
         string time = TimeTable(16, 22);
         int quantityPeople = HowManyPeople();
         string reservationCode = ConfirmReservation();
+        if (reservationCode == "")
+        {
+            Menu.HandleLogin();
+            return;
+        }
         AccountModel account = AccountsLogic.CurrentAccount!;
         ReservationModel newReservation = ReservationsLogic.AddReservation(userDate, time, quantityPeople, account.FullName, account.Id, reservationCode);
-        Console.WriteLine($"\n{newReservation.ToString()}\n");
-        Console.ReadLine();
         Menu.HandleLogin();
     }
 
@@ -169,7 +172,7 @@ public static class ReservationMenu
             Console.Write($"{what}: ");
             string input = Console.ReadLine() ?? "";
             if (int.TryParse(input, out i)) return int.Parse(input);
-            else Console.WriteLine("Invalid input, it has to be a number.");
+            else Console.WriteLine("Invalid input, your input has to be a number.");
         }
     }
 
