@@ -57,6 +57,7 @@ class ForeGround
                 break;
             case 3:
                 MenuCard.ShowMenuCard();
+                MenuCard.BackToMenu();
                 break;
             case 4:
                 System.Environment.Exit(0);

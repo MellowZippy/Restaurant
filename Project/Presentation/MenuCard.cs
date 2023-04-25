@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-static class MenuCard
+public static class MenuCard
 {
-    static private FoodLogic _foodLogic = new FoodLogic();
+    public static FoodLogic _foodLogic = new FoodLogic();
 
     public static void ShowMenuCard()
     {
@@ -21,8 +21,13 @@ static class MenuCard
         }
         Console.ForegroundColor = ConsoleColor.White;
         Menu.PressEnter();
-        if (AccountsLogic.CurrentAccount != null) Menu.HandleLogin();
+        
+        
+    }
 
+    public static void BackToMenu()
+    {
+        if (AccountsLogic.CurrentAccount != null) Menu.HandleLogin();
     }
 
     public static void DeleteFromMenuCard()
@@ -32,27 +37,41 @@ static class MenuCard
         int choiceUser = ReservationMenu.CheckIfInputIsInt();
 
         DeleteItemFromMenu(choiceUser);
+
+        FoodLogic.RearrangeIDs();
     }
 
     public static void DeleteItemFromMenu(int id)
     {
         List<FoodModel> objects = JsonConvert.DeserializeObject<List<FoodModel>>(File.ReadAllText("DataSources/food.json"))!;
-    
         FoodModel objectToRemove = objects.Find(o => o.Id == id)!;
+
         if (objectToRemove != null)
         {
             objects.Remove(objectToRemove);
         }
-
         File.WriteAllText("DataSources/food.json", JsonConvert.SerializeObject(objects));
     }
 
+    /*
+        public static void DeleteItemFromMenu(int id)
+    {
+        foreach (FoodModel foodItem in FoodLogic._foodList)
+        {
+            if (foodItem.Id == id)
+            {
+                FoodLogic._foodList.Remove(foodItem);
+                FoodAccess.WriteAll(FoodLogic._foodList);
+            }
+        }
+    }
+    */
+
+
     public static void DeleteAllItemsFromMenuCard()
     {
-        for (int i = 0; i <= 1000; i++)
-        {
-            DeleteItemFromMenu(i);
-        }
+        FoodLogic._foodList = new List<FoodModel>();
+        FoodAccess.WriteAll(FoodLogic._foodList);
     }
 
     public static void AddItemToMenu()
@@ -66,12 +85,12 @@ static class MenuCard
         Console.WriteLine("What category of food does this dish belong to?");
         string DishCategory = Console.ReadLine() ?? "";
 
-        int id = _foodLogic.GetLastId() + 1;
+        int id = _foodLogic.GetLastId();
 
         FoodModel foodModel = new FoodModel(id, DishName, DishPrice, DishDescription, DishCategory);
 
         _foodLogic.UpdateList(foodModel);
-        
+        AdminMenu.AdminUI();
     }
 
     public static void ShowMenuOptions()
@@ -81,6 +100,7 @@ static class MenuCard
         Console.WriteLine("[C] Change an item.");
         Console.WriteLine("[R] Remove all items.");
         Console.WriteLine("[A] Add an item to the menu");
+        Console.WriteLine("[B] Go back");
 
         string UserChoice = Console.ReadLine()!;
 
@@ -91,10 +111,22 @@ static class MenuCard
                 break;
             case "R":
                 DeleteAllItemsFromMenuCard();
+
                 break;
             case "A": 
                 AddItemToMenu();
                 break;
+            case "C":
+                ShowMenuCard();
+                Console.WriteLine("What id would you like to change ?");
+                int id = ReservationMenu.CheckIfInputIsInt();
+                FoodLogic.EditFoodItem(id);
+                break;
+            case "B":
+                AdminMenu.AdminUI();
+                break;
+
+
                 
         }
 
