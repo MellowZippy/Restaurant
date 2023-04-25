@@ -12,4 +12,24 @@ public static class WaiterCommands
         Console.WriteLine();
         Menu.PressEnter();
     }
+
+    public static ReservationModel WaiterChooseReservation()
+    {
+        List<ReservationModel> reservationsToday = ReservationsAccess.TodaysReservations();
+        Console.WriteLine("Choose a reservation to connect to a table");
+        int action = ReservationMenu.CheckIfInputIsInt();
+        for (int i = 0; i < reservationsToday.Count; i++)
+        {
+            if (action == i + 1)
+            {
+                return reservationsToday[i];
+            }
+        }
+        return null!;
+    }
+
+    public static void AddReservationToTable(ReservationModel reservation)
+    {
+
+    }
 }

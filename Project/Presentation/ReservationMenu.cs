@@ -169,7 +169,7 @@ public static class ReservationMenu
             Console.Write($"{what}: ");
             string input = Console.ReadLine() ?? "";
             if (int.TryParse(input, out i)) return int.Parse(input);
-            else Console.WriteLine("Invalid input, it has to be a number.");
+            else Console.WriteLine("Invalid input, your input has to be a number.");
         }
     }
 

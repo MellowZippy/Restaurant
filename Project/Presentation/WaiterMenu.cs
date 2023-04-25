@@ -20,8 +20,8 @@ public class WaiterMenu
             case "2": WaiterCommands.TodaysReservations(); Menu.HandleLogin(); break;
             case "3": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
             case "4": Menu.message = "! not yet implemented feature !"; Menu.HandleLogin(); break;
-            case "5": SearchLogic.SearchItemStart("Reservations"); break;
-            case "6": SearchLogic.OrderByStart("Reservations"); break;
+            case "5": SearchLogic.OrderByStart("Reservations"); break;
+            case "6": SearchLogic.SearchItemStart("Reservations"); break;
             case "BACK": AccountsLogic.SetCurrentAccount(null!); Menu.Start(); break;
             default: WaiterMenu.WaiterUI(); break;
         }
