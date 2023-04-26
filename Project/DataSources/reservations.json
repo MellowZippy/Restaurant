@@ -9,21 +9,30 @@
     "reservationCode": "JV06D"
   },
   {
-    "id": 2,
-    "date": "2023-05-04T00:00:00",
-    "time": "16:00 - 17:00",
-    "quantityPeople": 1,
-    "fullName": "Jane Doe",
-    "accountId": 4,
-    "reservationCode": "JKKLZ"
-  },
-  {
     "id": 3,
     "date": "2023-04-26T00:00:00",
-    "time": "16:00 - 17:00",
-    "quantityPeople": 1,
+    "time": "17:00 - 18:00",
+    "quantityPeople": 2,
+    "fullName": "John Doe",
+    "accountId": 5,
+    "reservationCode": "QOMIM"
+  },
+  {
+    "id": 5,
+    "date": "2023-04-26T00:00:00",
+    "time": "18:00 - 19:00",
+    "quantityPeople": 3,
     "fullName": "Jane Doe",
     "accountId": 4,
-    "reservationCode": "Y4MH6"
+    "reservationCode": "S9T7R"
+  },
+  {
+    "id": 6,
+    "date": "2023-04-26T00:00:00",
+    "time": "21:00 - 22:00",
+    "quantityPeople": 6,
+    "fullName": "Willem Alexander",
+    "accountId": 6,
+    "reservationCode": "L4Q3T"
   }
 ]

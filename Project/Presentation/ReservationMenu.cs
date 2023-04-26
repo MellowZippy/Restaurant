@@ -36,7 +36,7 @@ public static class ReservationMenu
 
     public static ReservationModel ChooseReservation()
     {
-        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation();
+        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation().OrderBy(x => x.Date).ToList();
         if (UserReservationsList.Count == 0)
         {
             Menu.message = "You have no reservations";
