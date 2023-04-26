@@ -25,5 +25,32 @@
     "isAdmin": true,
     "isWaiter": false,
     "isCustomer": false
+  },
+  {
+    "id": 4,
+    "emailAddress": "jane.doe@gmail.com",
+    "password": "T",
+    "fullName": "Jane Doe",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
+  },
+  {
+    "id": 5,
+    "emailAddress": "john.doe@gmail.com",
+    "password": "T",
+    "fullName": "John Doe",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
+  },
+  {
+    "id": 6,
+    "emailAddress": "willem.alexander@gmail.com",
+    "password": "T",
+    "fullName": "Willem Alexander",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
   }
 ]

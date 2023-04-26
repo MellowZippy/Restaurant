@@ -7,5 +7,14 @@
     "fullName": "Customer UI",
     "accountId": 1,
     "reservationCode": "JV06D"
+  },
+  {
+    "id": 2,
+    "date": "2023-05-04T00:00:00",
+    "time": "16:00 - 17:00",
+    "quantityPeople": 1,
+    "fullName": "Jane Doe",
+    "accountId": 4,
+    "reservationCode": "JKKLZ"
   }
 ]
