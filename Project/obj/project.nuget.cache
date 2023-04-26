@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tgZhDAOzXXym38VWm1Z6YIO4EAH6JOL+gtPPWZlOEsgr74Pa/6aqOAlLu01s/F+dwNynaHX1b/pXLfLoYYUKqQ==",
+  "dgSpecHash": "HHVh620Ze5wmv5iITx11qWhaxCFwOat8b3iRdtYbCmvP+CDaDN5CDr1fH3Ev4bERqMj9h4ajojJ5wEU1C+8fcg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Basic\\OneDrive\\Desktop\\Harold\\Restaurant\\Project\\Project.csproj",
+  "projectFilePath": "C:\\Users\\pablo\\OneDrive\\Documents\\Developments\\C# Folders\\Jaar 1 S2\\Connected Project B\\Restaurant\\Project\\Project.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Basic\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\pablo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

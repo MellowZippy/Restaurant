@@ -6,7 +6,7 @@ public class WaiterMenu
         Menu.Print();
         Menu.Header("Waiter UI:");
         Console.WriteLine("Enter 1 to see the menu card");
-        Console.WriteLine("Enter 2 to see the menu card");
+        Console.WriteLine("Enter 2 to see today's reservations");
         // Console.WriteLine("Enter 2 to manage the customer's presence");
         // Console.WriteLine("Enter 3 to manage the customer's order");
         // Console.WriteLine("Enter 4 to calculate the receipt");
