@@ -271,4 +271,18 @@ public static class ReservationMenu
         }
         else Console.WriteLine("You have no reservations");
     }
+
+    public static void SeeAllReservations()
+    {
+        Console.WriteLine("Your reservations:");
+        List<ReservationModel> AllReservations = ReservationsAccess.LoadAll();
+        if (AllReservations.Count != 0)
+        {
+            for (int i = 0; i < AllReservations.Count; i++)
+            {
+                Console.WriteLine($"Reservation {i + 1}: {AllReservations[i].ToString()}");
+            }
+        }
+        else Console.WriteLine("There are no reservations.");
+    }
 }
