@@ -9,6 +9,7 @@
     "reservationCode": "JV06D"
   },
   {
+<<<<<<< HEAD
     "id": 2,
     "date": "2023-08-24T00:00:00",
     "time": "20:00 - 21:00",
@@ -34,5 +35,32 @@
     "fullName": "Harold Ponte da Costa",
     "accountId": 5,
     "reservationCode": "LN253"
+=======
+    "id": 3,
+    "date": "2023-04-26T00:00:00",
+    "time": "17:00 - 18:00",
+    "quantityPeople": 2,
+    "fullName": "John Doe",
+    "accountId": 5,
+    "reservationCode": "QOMIM"
+  },
+  {
+    "id": 5,
+    "date": "2023-04-26T00:00:00",
+    "time": "18:00 - 19:00",
+    "quantityPeople": 3,
+    "fullName": "Jane Doe",
+    "accountId": 4,
+    "reservationCode": "S9T7R"
+  },
+  {
+    "id": 6,
+    "date": "2023-04-26T00:00:00",
+    "time": "21:00 - 22:00",
+    "quantityPeople": 6,
+    "fullName": "Willem Alexander",
+    "accountId": 6,
+    "reservationCode": "L4Q3T"
+>>>>>>> 48d9b9026f8d8da6414b650b26101a0df4a23b0e
   }
 ]

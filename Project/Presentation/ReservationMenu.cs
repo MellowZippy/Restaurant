@@ -36,7 +36,7 @@ public static class ReservationMenu
 
     public static ReservationModel ChooseReservation()
     {
-        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation();
+        List<ReservationModel> UserReservationsList = ReservationsLogic.FindAccountReservation().OrderBy(x => x.Date).ToList();
         if (UserReservationsList.Count == 0)
         {
             Menu.message = "You have no reservations";
@@ -289,5 +289,19 @@ public static class ReservationMenu
 
         Menu.PressEnter();
         AdminMenu.AdminUI();
+    }
+
+    public static void SeeAllReservations()
+    {
+        Console.WriteLine("Your reservations:");
+        List<ReservationModel> AllReservations = ReservationsAccess.LoadAll();
+        if (AllReservations.Count != 0)
+        {
+            for (int i = 0; i < AllReservations.Count; i++)
+            {
+                Console.WriteLine($"Reservation {i + 1}: {AllReservations[i].ToString()}");
+            }
+        }
+        else Console.WriteLine("There are no reservations.");
     }
 }

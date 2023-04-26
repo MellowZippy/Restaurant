@@ -28,18 +28,39 @@
   },
   {
     "id": 4,
+<<<<<<< HEAD
     "emailAddress": "daniel@gmail.com",
     "password": "danieldaniel",
     "fullName": "daniel nales",
+=======
+    "emailAddress": "jane.doe@gmail.com",
+    "password": "T",
+    "fullName": "Jane Doe",
+>>>>>>> 48d9b9026f8d8da6414b650b26101a0df4a23b0e
     "isAdmin": false,
     "isWaiter": false,
     "isCustomer": true
   },
   {
     "id": 5,
+<<<<<<< HEAD
     "emailAddress": "haroldponte2003@gmail.com",
     "password": "password2",
     "fullName": "Harold Ponte da Costa",
+=======
+    "emailAddress": "john.doe@gmail.com",
+    "password": "T",
+    "fullName": "John Doe",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
+  },
+  {
+    "id": 6,
+    "emailAddress": "willem.alexander@gmail.com",
+    "password": "T",
+    "fullName": "Willem Alexander",
+>>>>>>> 48d9b9026f8d8da6414b650b26101a0df4a23b0e
     "isAdmin": false,
     "isWaiter": false,
     "isCustomer": true

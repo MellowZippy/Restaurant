@@ -21,13 +21,13 @@ public static class MenuCard
         }
         Console.ForegroundColor = ConsoleColor.White;
         Menu.PressEnter();
-        
-        
+        BackToMenu();
     }
 
     public static void BackToMenu()
     {
         if (AccountsLogic.CurrentAccount != null) Menu.HandleLogin();
+        else ForeGround.ForeGroundStartScreen();
     }
 
     public static void DeleteFromMenuCard()
@@ -44,7 +44,7 @@ public static class MenuCard
     public static void DeleteItemFromMenu(int id)
     {
         List<FoodModel> objects = JsonConvert.DeserializeObject<List<FoodModel>>(File.ReadAllText("DataSources/food.json"))!;
-    
+
         FoodModel objectToRemove = objects.Find(o => o.Id == id)!;
 
         if (objectToRemove != null)
@@ -128,7 +128,7 @@ public static class MenuCard
                 break;
 
 
-                
+
         }
 
     AdminMenu.AdminUI();
