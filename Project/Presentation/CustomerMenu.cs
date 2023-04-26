@@ -19,8 +19,8 @@ static class CustomerMenu
         {
             case "1": ReservationMenu.MakeReservation(); break;
             case "2": ReservationMenu.SeeReservations(); Menu.PressEnter(); Menu.HandleLogin(); break;
-            case "3": ReservationMenu.ChangeReservation(); break; // WORKS, BUT NOT YET DONE
-            case "4": ReservationMenu.CancelReservation(); break; // WORKS, BUT NOT YET DONE
+            case "3": ReservationMenu.ChangeReservation(); break;
+            case "4": ReservationMenu.CancelReservation(); break;
             case "5": UserLogin.ChangePassword(); break;
             case "6": MenuCard.ShowMenuCard(); break;
             case "BACK": AccountsLogic.SetCurrentAccount(null!); ForeGround.ForeGroundStartScreen(); break;
