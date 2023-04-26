@@ -131,9 +131,7 @@ public static class MenuCard
                 
         }
 
-
-
-
+    AdminMenu.AdminUI();
     }
 }
 

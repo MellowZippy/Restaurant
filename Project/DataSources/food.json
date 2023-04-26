@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "test",
-    "price": 8,
-    "description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-    "category": "hmmm"
+    "name": "Pizza",
+    "price": 9,
+    "description": "Dough, Tomato, Cheese",
+    "category": "Italian"
   }
 ]

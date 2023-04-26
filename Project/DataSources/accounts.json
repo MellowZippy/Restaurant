@@ -25,5 +25,23 @@
     "isAdmin": true,
     "isWaiter": false,
     "isCustomer": false
+  },
+  {
+    "id": 4,
+    "emailAddress": "daniel@gmail.com",
+    "password": "danieldaniel",
+    "fullName": "daniel nales",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
+  },
+  {
+    "id": 5,
+    "emailAddress": "haroldponte2003@gmail.com",
+    "password": "password2",
+    "fullName": "Harold Ponte da Costa",
+    "isAdmin": false,
+    "isWaiter": false,
+    "isCustomer": true
   }
 ]

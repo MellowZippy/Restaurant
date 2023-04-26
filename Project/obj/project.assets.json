@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Basic\\OneDrive\\Desktop\\Harold\\Restaurant\\Project\\Project.csproj",
+      "projectUniqueName": "C:\\Users\\Basic\\OneDrive\\Documents\\Harold\\Restaurant\\Project\\Project.csproj",
       "projectName": "Project",
-      "projectPath": "C:\\Users\\Basic\\OneDrive\\Desktop\\Harold\\Restaurant\\Project\\Project.csproj",
+      "projectPath": "C:\\Users\\Basic\\OneDrive\\Documents\\Harold\\Restaurant\\Project\\Project.csproj",
       "packagesPath": "C:\\Users\\Basic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Basic\\OneDrive\\Desktop\\Harold\\Restaurant\\Project\\obj\\",
+      "outputPath": "C:\\Users\\Basic\\OneDrive\\Documents\\Harold\\Restaurant\\Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Basic\\AppData\\Roaming\\NuGet\\NuGet.Config",

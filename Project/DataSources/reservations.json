@@ -7,5 +7,32 @@
     "fullName": "Customer UI",
     "accountId": 1,
     "reservationCode": "JV06D"
+  },
+  {
+    "id": 2,
+    "date": "2023-08-24T00:00:00",
+    "time": "20:00 - 21:00",
+    "quantityPeople": 7,
+    "fullName": "Customer UI",
+    "accountId": 1,
+    "reservationCode": "C7Z4A"
+  },
+  {
+    "id": 3,
+    "date": "2023-04-30T00:00:00",
+    "time": "16:00 - 17:00",
+    "quantityPeople": 4,
+    "fullName": "Customer UI",
+    "accountId": 1,
+    "reservationCode": "MA6RL"
+  },
+  {
+    "id": 4,
+    "date": "2023-04-26T00:00:00",
+    "time": "16:00 - 17:00",
+    "quantityPeople": 4,
+    "fullName": "Harold Ponte da Costa",
+    "accountId": 5,
+    "reservationCode": "LN253"
   }
 ]
