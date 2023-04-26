@@ -53,6 +53,7 @@ public static class Menu
         else if (input == "3")
         {
             MenuCard.ShowMenuCard();
+            MenuCard.BackToMenu();
         }
         else if (input == "4")
         {

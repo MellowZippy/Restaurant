@@ -1,22 +1,13 @@
 using System.Text.Json;
 
-static class FoodAccess
+public static class FoodAccess
 {
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/food.json"));
 
     public static List<FoodModel> LoadAll()
     {
         string json = File.ReadAllText(path);
-        List<FoodModel> foodList = JsonSerializer.Deserialize<List<FoodModel>>(json)!;
-        if (foodList != null)
-        {
-            return foodList;
-        }
-        else
-        {
-            Console.WriteLine("Error: failed to deserialize JSON to List<FoodModel>");
-            return new List<FoodModel>();
-        }
+        return JsonSerializer.Deserialize<List<FoodModel>>(json)!;
     }
 
     public static void WriteAll(List<FoodModel> foodList)

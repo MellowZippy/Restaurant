@@ -10,7 +10,9 @@ static class CustomerMenu
         Console.WriteLine("Enter 3 to change your reservation");
         Console.WriteLine("Enter 4 to cancel your reservation");
         Console.WriteLine("Enter 5 to change your password");
+        Console.WriteLine("Enter 6 to see the menu");
         Console.WriteLine("Enter 'back' to go to the home screen");
+        
         string input = Console.ReadLine() ?? "";
         Console.Clear();
         switch (input.ToUpper())
@@ -20,10 +22,11 @@ static class CustomerMenu
             case "3": ReservationMenu.ChangeReservation(); break;
             case "4": ReservationMenu.CancelReservation(); break;
             case "5": UserLogin.ChangePassword(); break;
+            case "6": MenuCard.ShowMenuCard(); break;
             case "BACK": AccountsLogic.SetCurrentAccount(null!); ForeGround.ForeGroundStartScreen(); break;
             default: CustomerMenu.CustomerUI(); break;
         }
         Console.WriteLine("Invalid input");
-        AdminMenu.AdminUI();
+        CustomerMenu.CustomerUI();
     }
 }

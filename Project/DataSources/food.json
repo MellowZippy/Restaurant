@@ -1,1 +1,9 @@
-[{"Id":1,"Name":"GroenteSoep","Price":23.0,"Description":"Delicious","Category":"Soup"}]
+[
+  {
+    "id": 1,
+    "name": "test",
+    "price": 8,
+    "description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "category": "hmmm"
+  }
+]
